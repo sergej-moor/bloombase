@@ -22,7 +22,11 @@
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<div class="mx-4 h-full">
-		<slot />
+	<div class="flex justify-center h-full mx-2">
+		<div class="flex flex-col gap-4 min-w-full md:min-w-[750px]">
+			<div class="h-full">
+				<slot><!-- optional fallback --></slot>
+			</div>
+		</div>
 	</div>
 </AppShell>

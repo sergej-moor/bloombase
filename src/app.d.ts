@@ -14,14 +14,21 @@ interface Question {
 	answers: Array<string>;
 }
 
-interface PlantCard {
-	title: string;
-	image: string;
-}
+
 
 interface PlantFilter {
 	experience: number;
 	water_frequency: number;
 	light_level: number;
 	pet_friendly: boolean;
+}
+
+interface Plant {
+	id: number;
+	name: string;
+	image_url: string;
+	light_level: number;
+	water_frequency: number;
+	pet_friendly: boolean;
+	experience: number;
 }

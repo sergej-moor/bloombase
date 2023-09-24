@@ -43,16 +43,12 @@
 	let lastQuestionIndex: number = questions.length - 1;
 </script>
 
-<div class="flex justify-center h-full">
-	<div class="flex flex-col gap-4 min-w-full md:min-w-[750px]">
-		<div class=" h-full">
-			{#if currentQuestionIndex <= lastQuestionIndex}
-				<progress value={currentQuestionIndex} max={lastQuestionIndex + 1} />
-				<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
-			{:else}
-				<!-- else content here -->
-				<LoadResults />
-			{/if}
-		</div>
-	</div>
+<div>
+	{#if currentQuestionIndex <= lastQuestionIndex}
+		<progress value={currentQuestionIndex} max={lastQuestionIndex + 1} />
+		<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
+	{:else}
+		<!-- else content here -->
+		<LoadResults />
+	{/if}
 </div>

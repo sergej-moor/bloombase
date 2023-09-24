@@ -3,15 +3,17 @@
 	import { plantFilterStore } from '../../stores/plantFilterStore';
 	export let data;
 
-	const plants = data.plants.map((plant) => {
-		return {
-			title: plant.name,
-			image: plant.image_url,
+	const plants = data.plants.map((plant) =>  {
+		const plantObj: Plant =  {
+			id: plant.id,
+			name: plant.name,
+			image_url: plant.image_url,
 			light_level: plant.light_level,
 			water_frequency: plant.water_frequency,
 			pet_friendly: plant.pet_friendly,
 			experience: plant.experience
 		};
+		return plantObj;
 	});
 
 	let filters: PlantFilter;
