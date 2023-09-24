@@ -1,34 +1,61 @@
+<script lang="ts">
+	// your script goes here
+	import { goto } from '$app/navigation';
+	import { questionIndexStore, nextQuestion } from '../stores/questionIndexStore';
+	import { page } from '$app/stores';
+	export let question: Question = {
+		title: '',
+		type: '',
+		answers: []
+	};
+	export let index: number;
+
+	export function answerQuestion(answer: number) {
+		let query = new URLSearchParams($page.url.searchParams.toString());
+		query.set('question', (index + 1).toString());
+		query.set(question.type, answer.toString());
+		goto(`?${query.toString()}`);
+
+		nextQuestion();
+	}
+
+	export function skipQuestion() {
+		let query = new URLSearchParams($page.url.searchParams.toString());
+
+		query.set('question', (index + 1).toString());
+
+		goto(`?${query.toString()}`);
+		nextQuestion();
+		//goto(`/wizard?question=${index + 1}`);
+	}
+</script>
+
 <div class="flex flex-col justify-between h-full my-4">
 	<div class="flex flex-col justify-between h-full">
-		<progress value={3} max={7} />
 		<div>
-			<p class="text-sm">Question 3</p>
-			<h2 class="text-3xl mb-8">What is this question?</h2>
-
-			<form action="" class="text-lg">
-				<div class="space-y-2">
-					<label class="flex items-center space-x-2">
-						<input class="radio" type="radio" checked name="radio-direct" value="1" />
-						<p>Option 1</p>
-					</label>
-					<label class="flex items-center space-x-2">
-						<input class="radio" type="radio" name="radio-direct" value="2" />
-						<p>Option 2</p>
-					</label>
-					<label class="flex items-center space-x-2">
-						<input class="radio" type="radio" name="radio-direct" value="3" />
-						<p>Option 3</p>
-					</label>
-				</div>
-			</form>
+			<p class="text-sm">Question {index}</p>
+			<h2 class="text-3xl mb-16">{question.title}</h2>
+			<div class="answer-box flex flex-col gap-2">
+				{#each question.answers as answer, index}
+					<!-- content here -->
+					<button
+						on:click={() => answerQuestion(index)}
+						type="button"
+						class="btn variant-filled font-bold w-full"
+					>
+						{answer}
+					</button>
+				{/each}
+				<button type="button" class="btn font-bold w-full" on:click={() => skipQuestion()}>
+					Skip
+				</button>
+			</div>
 		</div>
 		<div />
 	</div>
-	<div>
+	<!-- 	<div>
 		<div class="flex flex-col gap-2">
-			<button type="button" class="btn variant-filled font-bold"> Next </button>
-
 			<button type="button" class="btn underline">Skip</button>
 		</div>
-	</div>
+	</div> -->
 </div>

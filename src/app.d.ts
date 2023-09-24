@@ -7,3 +7,10 @@ declare namespace App {
 	// interface Error {}
 	// interface Platform {}
 }
+
+
+interface Question {
+	title: string,
+	type: string, //used to know about which attribute this question is about
+	answers: Array<string>
+}

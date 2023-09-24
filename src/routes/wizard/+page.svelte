@@ -1,12 +1,58 @@
 <script lang="ts">
 	import QuestionCard from '../../components/QuestionCard.svelte';
+	import LoadResults from '../../components/LoadResults.svelte';
+	import type { PageData } from './$types';
+	import { questionIndexStore } from '../../stores/questionIndexStore';
 
-    //7 fragen abspeichern
-    // 
+	//7 fragen abspeichern
+	//
+	import { page } from '$app/stores';
+
+	let questions: Array<Question> = [
+		{
+			title: 'Experience?',
+			type: 'experience',
+			answers: ['yes', 'a bit', 'no']
+		},
+		{
+			title: 'Do you like sunlight?',
+			type: 'light',
+			answers: ['yes', 'a bit', 'no']
+		},
+		{
+			title: 'Do you have pets?',
+			type: 'pets',
+			answers: ['yes', 'no']
+		},
+		{
+			title: 'Watering?',
+			type: 'watering',
+			answers: ['yes', 'a bit', 'no']
+		}
+	];
+	const url = $page.url;
+	const question = url.searchParams.get('question');
+	let currentQuestionIndex: number = 0;
+
+	questionIndexStore.subscribe((value) => {
+		currentQuestionIndex = value;
+	});
+	//question !== null ? parseInt(question) : 0;
+	console.log(currentQuestionIndex);
+
+	let lastQuestionIndex: number = questions.length - 1;
 </script>
 
 <div class="flex justify-center h-full">
 	<div class="flex flex-col gap-4 min-w-full md:min-w-[750px]">
-		<QuestionCard />
+		<div class=" h-full">
+			{#if currentQuestionIndex <= lastQuestionIndex}
+				<progress value={currentQuestionIndex} max={lastQuestionIndex + 1} />
+				<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
+			{:else}
+				<!-- else content here -->
+				<LoadResults />
+			{/if}
+		</div>
 	</div>
 </div>
