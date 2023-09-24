@@ -15,9 +15,9 @@
 			answers: ['yes', 'a bit', 'no']
 		},
 		{
-			title: 'Do you like sunlight?',
+			title: 'Do you have sunlight?',
 			type: 'light',
-			answers: ['yes', 'a bit', 'no']
+			answers: ['a lot', 'a bit', 'no']
 		},
 		{
 			title: 'Do you have pets?',
@@ -25,9 +25,9 @@
 			answers: ['yes', 'no']
 		},
 		{
-			title: 'Watering?',
+			title: 'Watering time?',
 			type: 'watering',
-			answers: ['yes', 'a bit', 'no']
+			answers: ['a lot', 'a bit', 'no']
 		}
 	];
 	const url = $page.url;
@@ -38,7 +38,7 @@
 		currentQuestionIndex = value;
 	});
 	//question !== null ? parseInt(question) : 0;
-	console.log(currentQuestionIndex);
+	/* console.log(currentQuestionIndex); */
 
 	let lastQuestionIndex: number = questions.length - 1;
 </script>

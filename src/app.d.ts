@@ -8,14 +8,20 @@ declare namespace App {
 	// interface Platform {}
 }
 
-
 interface Question {
-	title: string,
-	type: string, //used to know about which attribute this question is about
-	answers: Array<string>
+	title: string;
+	type: string; //used to know about which attribute this question is about
+	answers: Array<string>;
 }
 
 interface PlantCard {
-	title: string,
-	image: string,
+	title: string;
+	image: string;
+}
+
+interface PlantFilter {
+	experience: number;
+	water_frequency: number;
+	light_level: number;
+	pet_friendly: boolean;
 }

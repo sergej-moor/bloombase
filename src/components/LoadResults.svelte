@@ -4,10 +4,12 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	let query = new URLSearchParams($page.url.searchParams.toString());
-	console.log('searching for ', query.toString());
+	
 	setTimeout(() => {
-		goto('/explore');
-	}, 2000);
+		query.delete('question');
+
+		goto(`/explore?${query.toString()}`);
+	}, 1500);
 </script>
 
 <div class="flex flex-col gap-8 justify-center items-center h-full -mt-12">

@@ -1,14 +1,7 @@
 <script lang="ts">
 	import BigCard from '../../components/BigCard.svelte';
-
+	import { plantFilterStore } from '../../stores/plantFilterStore';
 	export let data;
-
-	const plantCards = data.plants.map((plant) => {
-		return {
-			title: plant.name,
-			image: plant.image_url
-		};
-	});
 
 	const plants = data.plants.map((plant) => {
 		return {
@@ -16,23 +9,26 @@
 			image: plant.image_url,
 			light_level: plant.light_level,
 			water_frequency: plant.water_frequency,
-			pet_friendly: plant.pet_friendly
+			pet_friendly: plant.pet_friendly,
+			experience: plant.experience
 		};
 	});
-	const filters = {
-		pet_friendly: true,
-		light_level: 0,
-		water_frequency: 1
-	};
+
+	let filters: PlantFilter;
+	plantFilterStore.subscribe((value) => {
+		filters = value;
+	});
+	filters = data.filters;
 
 	const filteredPlants = () => {
 		return plants.filter(
 			(plant) =>
-				plant.light_level >= filters.light_level && plant.water_frequency >= filters.water_frequency
+				plant.light_level >= filters.light_level &&
+				plant.water_frequency >= filters.water_frequency &&
+				plant.experience >= filters.experience &&
+				(filters.pet_friendly ? filters.pet_friendly == plant.pet_friendly : true)
 		);
 	};
-
-	console.log(filteredPlants());
 </script>
 
 <div>
