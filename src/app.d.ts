@@ -14,3 +14,8 @@ interface Question {
 	type: string, //used to know about which attribute this question is about
 	answers: Array<string>
 }
+
+interface PlantCard {
+	title: string,
+	image: string,
+}
