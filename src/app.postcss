@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@font-face {
+	/* Reference name */
+	font-family: 'Philosopher';
+	/* For multiple files use commas, ex: url(), url(), ... */
+	src: url('/fonts/Philosopher-Bold.ttf');
+}
+
+@font-face {
+	/* Reference name */
+	font-family: 'Mulish';
+	/* For multiple files use commas, ex: url(), url(), ... */
+	src: url('/fonts/Mulish-VariableFont_wght.ttf');
+}
+
+html,
+body {
+	@apply h-full overflow-hidden;
+}
+body {
+
+}
+:root [data-theme='skeleton'] {
+	--theme-rounded-base: 4px;
+	--theme-rounded-container: 4px;
+	--theme-font-family-base: 'Mulish', sans-serif;
+	--theme-font-family-heading: 'Philosopher', serif;
+}
