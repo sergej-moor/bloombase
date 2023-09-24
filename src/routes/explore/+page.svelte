@@ -1,10 +1,11 @@
 <script lang="ts">
 	import BigCard from '../../components/BigCard.svelte';
+	import FilterDrawer from '../../components/FilterDrawer.svelte';
 	import { plantFilterStore } from '../../stores/plantFilterStore';
 	export let data;
 
-	const plants = data.plants.map((plant) =>  {
-		const plantObj: Plant =  {
+	const plants = data.plants.map((plant) => {
+		const plantObj: Plant = {
 			id: plant.id,
 			name: plant.name,
 			image_url: plant.image_url,
@@ -37,7 +38,8 @@
 	<h2 class="text-2xl">Browse plants</h2>
 	<div class="flex justify-between">
 		<input type="search" placeholder="Monstera" />
-		<button class="btn variant-filled">Filters</button>
+		<!-- <button class="btn variant-filled">Filters</button> -->
+		<FilterDrawer />
 	</div>
 
 	<section class="card-container">

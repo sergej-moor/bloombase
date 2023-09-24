@@ -1,6 +1,11 @@
 <script lang="ts">
 	import '../app.postcss';
+	import { Drawer, getDrawerStore } from '@skeletonlabs/skeleton';
+	import type { DrawerSettings, DrawerStore } from '@skeletonlabs/skeleton';
+	import { initializeStores } from '@skeletonlabs/skeleton';
 
+	initializeStores();
+	const drawerStore = getDrawerStore();
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
@@ -9,6 +14,28 @@
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
+<Drawer>
+	{#if $drawerStore.id === 'plant-filter'}
+		<div class="m-4">
+			<div class="flex justify-between">
+				<h2 class="text-2xl">Filter</h2>
+
+				<button on:click={() => drawerStore.close()}>x</button>
+			</div>
+
+			<form>
+				<label for="">
+					<span class="font-bold text-lg">Light needed</span>
+					<div class="flex">
+						<span class="w-16">Low</span>
+						<input type="range" class="range" value="1" max="2" name="" id="" />
+						<span class="w-16 text-end">High</span>
+					</div>
+				</label>
+			</form>
+		</div>
+	{/if}
+</Drawer>
 <AppShell>
 	<svelte:fragment slot="header">
 		<AppBar>
