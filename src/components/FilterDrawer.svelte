@@ -27,7 +27,7 @@
 		<label for="" class="border border-black rounded-lg p-2 bg-white">
 			<span class="font-bold text-lg">Easy-Care</span>
 			<div class="flex mt-1">
-				<span class="w-16">Easy</span>
+				<span class="w-16"> Hard</span>
 				<input
 					type="range"
 					class="range mt-1"
@@ -35,13 +35,13 @@
 					on:input={() => updateUrl('experience', $plantFilterStore.experience)}
 					max="2"
 				/>
-				<span class="w-16 text-end">Hard</span>
+				<span class="w-16 text-end">Easy</span>
 			</div>
 		</label>
 		<label for="" class="border border-black rounded-lg p-2 bg-white">
 			<span class="font-bold text-lg">Light needed</span>
 			<div class="flex">
-				<span class="w-16">Low</span>
+				<span class="w-16">High</span>
 				<input
 					type="range"
 					class="range mt-1"
@@ -49,13 +49,13 @@
 					on:input={() => updateUrl('light', $plantFilterStore.light_level)}
 					max="2"
 				/>
-				<span class="w-16 text-end">High</span>
+				<span class="w-16 text-end"> Low</span>
 			</div>
 		</label>
 		<label for="" class="border border-black rounded-lg p-2 bg-white">
 			<span class="font-bold text-lg">Watering needed</span>
 			<div class="flex">
-				<span class="w-16">Low</span>
+				<span class="w-16"> High</span>
 				<input
 					type="range"
 					class="range mt-1"
@@ -63,7 +63,7 @@
 					on:input={() => updateUrl('watering', $plantFilterStore.water_frequency)}
 					max="2"
 				/>
-				<span class="w-16 text-end">High</span>
+				<span class="w-16 text-end">Low</span>
 			</div>
 		</label>
 	</form>

@@ -10,24 +10,32 @@
 
 	let questions: Array<Question> = [
 		{
-			title: 'Experience?',
+			title: 'How experienced are you with plants?',
 			type: 'experience',
-			answers: ['yes', 'a bit', 'no']
+			answers: [
+				"I'm basically a Botanical Connoisseur 🧐",
+				'I can keep a few plants alive 🌱',
+				'I have a PhD in plant demise 🎓'
+			]
 		},
 		{
-			title: 'Do you have sunlight?',
+			title: 'How much sunlight would your plants get?',
 			type: 'light',
-			answers: ['a lot', 'a bit', 'no']
+			answers: ["I'm drowning in sunlight 😎", 'I get it then and there', "What's sunlight?! 🤔"]
 		},
 		{
-			title: 'Do you have pets?',
+			title: 'Do you have pets that chew on plants?',
 			type: 'pets',
-			answers: ['yes', 'no']
+			answers: ['Yes, they love to munch 😱', 'No plant eaters ❌']
 		},
 		{
-			title: 'Watering time?',
+			title: 'Are you a person that has time to water?',
 			type: 'watering',
-			answers: ['a lot', 'a bit', 'no']
+			answers: [
+				'Yes I got all the time in the world 🌎',
+				'I might have a minute or two!',
+				'I can barely sit down 😩'
+			]
 		}
 	];
 	const url = $page.url;
@@ -45,7 +53,9 @@
 
 <div>
 	{#if currentQuestionIndex <= lastQuestionIndex}
-		<progress value={currentQuestionIndex} max={lastQuestionIndex + 1} />
+		<div class="mt-8" />
+		<progress value={currentQuestionIndex + 1} max={lastQuestionIndex + 2} />
+		<div class="mt-16" />
 		<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
 	{:else}
 		<!-- else content here -->

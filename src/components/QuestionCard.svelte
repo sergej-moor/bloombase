@@ -33,7 +33,7 @@
 <div class="flex flex-col justify-between h-full my-4">
 	<div class="flex flex-col justify-between h-full">
 		<div>
-			<p class="text-sm">Question {index}</p>
+			<p class="text-sm">Question {index + 1}</p>
 			<h2 class="text-3xl mb-16">{question.title}</h2>
 			<div class="answer-box flex flex-col gap-2">
 				{#each question.answers as answer, index}
@@ -41,13 +41,13 @@
 					<button
 						on:click={() => answerQuestion(index)}
 						type="button"
-						class="btn variant-filled font-bold w-full"
+						class="bg-white block rounded-lg border-black border border-b-4 p-2 text-center font-bold"
 					>
 						{answer}
 					</button>
 				{/each}
 				<button type="button" class="btn font-bold w-full" on:click={() => skipQuestion()}>
-					Skip
+					Skip Question 👉
 				</button>
 			</div>
 		</div>
