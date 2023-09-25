@@ -6,12 +6,16 @@
 	const drawerSettings: DrawerSettings = {
 		id: 'plant-filter',
 		position: 'bottom',
-		meta: { foo: 'bar', fizz: 'buzz', age: 40 }
+		meta: { foo: 'bar', fizz: 'buzz', age: 40 },
+		rounded: 'rounded-lg'
 	};
 </script>
 
 <div>
-	<button class="variant-filled flex btn" on:click={() => drawerStore.open(drawerSettings)}>
+	<button
+		class="bg-yellow-400 btn border-black border rounded-lg flex"
+		on:click={() => drawerStore.open(drawerSettings)}
+	>
 		<IconBaselineFilterAlt />
 		<div>Filter</div>
 	</button>

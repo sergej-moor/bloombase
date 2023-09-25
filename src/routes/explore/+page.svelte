@@ -35,15 +35,15 @@
 </script>
 
 <div>
-	<h2 class="text-2xl">Browse plants</h2>
-	<div class="flex justify-between">
-		<input type="search" placeholder="Monstera" />
+	<h2 class="text-6xl h2 font-bold my-2 mb-8 leading-[0.9]">Browse <br /> plants</h2>
+	<div class="flex justify-between mb-4">
+		<input type="search" class="rounded-lg border border-black" placeholder="Monstera" />
 		<!-- <button class="btn variant-filled">Filters</button> -->
 		<FilterButton />
 	</div>
 
 	<section class="card-container">
-		<ul>
+		<ul class="">
 			{#each plantsFiltered as plant}
 				<li><BigCard {plant} /></li>
 			{/each}

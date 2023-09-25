@@ -1,19 +1,30 @@
 <script lang="ts">
+	import IconBaselineFavorite from '~icons/ic/baseline-favorite';
 	import slugify from '@sindresorhus/slugify';
 	export let plant: Plant;
 
 	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
 </script>
 
-<div class="my-4">
+<div class="mb-8 border-2 border-b-[12px] bg-white border-black rounded-lg">
 	<a class="card" href={link}>
-		<div class="h-full w-full variant-filled p-2">
-			<header class="card-header h-48 p-0">
-				<img src={plant.image_url} class="object-cover object-center h-full w-full" alt="" />
+		<div class="h-full w-full">
+			<header class="card-header h-64 p-0">
+				<img
+					src={plant.image_url}
+					class="object-cover object-center rounded-lg rounded-b-none border-b border-black h-full w-full"
+					alt=""
+				/>
 			</header>
-			<section class="flex justify-between">
-				<h2 class="text-lg">{plant.name}</h2>
-				<button>Like</button>
+			<section class="flex justify-between items-center mt-1">
+				<div
+					class=" text-center w-full
+				"
+				>
+					<p class="font-light pl-2 -mb-1">Monstera oblerase</p>
+					<h2 class="text-2xl font-bold p-2 pt-0">{plant.name}</h2>
+				</div>
+				<!-- <div class="m-2 bg-red-300"><IconBaselineFavorite class="h-8 w-8" /></div> -->
 			</section>
 			<!-- <footer class="card-footer">(footer)</footer> -->
 		</div>

@@ -6,11 +6,14 @@
 	const drawerStore = getDrawerStore();
 	const drawerSettings: DrawerSettings = {
 		id: 'main-navigation',
-		position: 'left'
+		position: 'left',
+		width: 'w-4/6'
 	};
 	/* drawerStore.open(drawerSettings); */
 </script>
 
-<div>
-	<button on:click={() => drawerStore.open(drawerSettings)}> <IconBaselineMenu /></button>
+<div class="flex flex-end">
+	<button class="" on:click={() => drawerStore.open(drawerSettings)}>
+		<IconBaselineMenu class="w-8 h-8" /></button
+	>
 </div>
