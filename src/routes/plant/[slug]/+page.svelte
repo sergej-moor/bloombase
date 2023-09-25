@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let data;
-	console.log(data);
+	
 
 	function getStats(plant: Plant) {
 		let stats = [];

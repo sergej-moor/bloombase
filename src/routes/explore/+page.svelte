@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BigCard from '../../components/BigCard.svelte';
-	import FilterDrawer from '../../components/FilterDrawer.svelte';
-	import { plantFilterStore } from '../../stores/plantFilterStore';
+	import FilterButton from '../../components/FilterButton.svelte';
+	import { plantFilterStore, setFilter } from '../../stores/plantFilterStore';
 	export let data;
 
 	const plants = data.plants.map((plant) => {
@@ -16,35 +16,36 @@
 		};
 		return plantObj;
 	});
-
-	let filters: PlantFilter;
-	plantFilterStore.subscribe((value) => {
-		filters = value;
-	});
-	filters = data.filters;
-
-	const filteredPlants = () => {
+	const filteredPlants = (filters: PlantFilter) => {
 		return plants.filter(
 			(plant) =>
 				plant.light_level >= filters.light_level &&
 				plant.water_frequency >= filters.water_frequency &&
-				plant.experience >= filters.experience &&
-				(filters.pet_friendly ? filters.pet_friendly == plant.pet_friendly : true)
+				plant.experience >= filters.experience /* &&
+				(filters.pet_friendly ? filters.pet_friendly == plant.pet_friendly : true) */
 		);
 	};
+	let plantsFiltered: Array<Plant>;
+
+	plantsFiltered = filteredPlants(data.filters);
+	setFilter(data.filters);
+	plantFilterStore.subscribe((filters) => {
+		plantsFiltered = filteredPlants(filters);
+	});
 </script>
 
 <div>
 	<h2 class="text-2xl">Browse plants</h2>
+	{data.filters.light_level}
 	<div class="flex justify-between">
 		<input type="search" placeholder="Monstera" />
 		<!-- <button class="btn variant-filled">Filters</button> -->
-		<FilterDrawer />
+		<FilterButton />
 	</div>
 
 	<section class="card-container">
 		<ul>
-			{#each filteredPlants() as plant}
+			{#each plantsFiltered as plant}
 				<li><BigCard {plant} /></li>
 			{/each}
 		</ul>

@@ -1,7 +1,5 @@
 import { supabase } from '$lib/supabaseClient';
 
-import { setFilter } from '../../stores/plantFilterStore.js';
-
 export const load = async ({ url }) => {
 	//get filters from url
 	const searchParams = url.searchParams;
@@ -33,15 +31,11 @@ export const load = async ({ url }) => {
 		}
 	}
 
-;
-
-	setFilter(filter);
-
 	//fetch call or graphql client
 
 	const { data } = await supabase.from('plants').select();
 	return {
 		plants: data ?? [],
-		filters: filter,
+		filters: filter
 	};
 };

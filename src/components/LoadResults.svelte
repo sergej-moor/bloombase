@@ -9,7 +9,7 @@
 		query.delete('question');
 
 		goto(`/explore?${query.toString()}`);
-	}, 1500);
+	}, 1000);
 </script>
 
 <div class="flex flex-col gap-8 justify-center items-center h-full -mt-12">

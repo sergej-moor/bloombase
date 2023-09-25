@@ -10,7 +10,7 @@ const baseFilter: PlantFilter = {
 export const plantFilterStore = writable<PlantFilter>(baseFilter);
 
 export function setFilter(newFilter: PlantFilter) {
-	plantFilterStore.update(() => newFilter);
+	plantFilterStore.set(newFilter);
 
 	/* console.log('filters');
 	console.log(get(plantFilterStore)); */
@@ -18,4 +18,8 @@ export function setFilter(newFilter: PlantFilter) {
 
 export function resetFilter() {
 	plantFilterStore.update(() => baseFilter);
+}
+
+export function getFilter() {
+	return get(plantFilterStore);
 }

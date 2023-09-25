@@ -1,45 +1,48 @@
 <script lang="ts">
 	import '../app.postcss';
+
 	import { Drawer, getDrawerStore } from '@skeletonlabs/skeleton';
 	import type { DrawerSettings, DrawerStore } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 
 	initializeStores();
 	const drawerStore = getDrawerStore();
+
+	function navigate(link: string) {
+		drawerStore.close();
+		goto(link);
+	}
+
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	//SkeletonUI
 	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
+	import NavigationButton from '../components/NavigationButton.svelte';
+	import FilterDrawer from '../components/FilterDrawer.svelte';
+	import { goto } from '$app/navigation';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
 </script>
 
 <Drawer>
 	{#if $drawerStore.id === 'plant-filter'}
-		<div class="m-4">
-			<div class="flex justify-between">
-				<h2 class="text-2xl">Filter</h2>
-
-				<button on:click={() => drawerStore.close()}>x</button>
-			</div>
-
-			<form>
-				<label for="">
-					<span class="font-bold text-lg">Light needed</span>
-					<div class="flex">
-						<span class="w-16">Low</span>
-						<input type="range" class="range" value="1" max="2" name="" id="" />
-						<span class="w-16 text-end">High</span>
-					</div>
-				</label>
-			</form>
+		<FilterDrawer />
+	{:else if $drawerStore.id === 'main-navigation'}
+		<div class="p-8">
+			<button on:click={() => navigate('/')} class="text-2xl h2">BloomBase</button>
+			<div />
+			<ul class="flex flex-col my-4 gap-2 text-lg">
+				<li><button on:click={() => navigate('/explore')}>Browse</button></li>
+				<li><button on:click={() => navigate('/wizard')}>Plant Wizard</button></li>
+			</ul>
 		</div>
 	{/if}
 </Drawer>
 <AppShell>
 	<svelte:fragment slot="header">
 		<AppBar>
-			<svelte:fragment slot="lead">.</svelte:fragment>
+			<svelte:fragment slot="lead"><NavigationButton /></svelte:fragment>
 
 			<svelte:fragment slot="trail">
 				<div class="h-6 flex items-center gap-2">

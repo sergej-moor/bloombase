@@ -1,18 +1,24 @@
 <script lang="ts">
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
-	import type { DrawerSettings, DrawerStore } from '@skeletonlabs/skeleton';
+	import { plantFilterStore, getFilter } from '../stores/plantFilterStore';
 	const drawerStore = getDrawerStore();
-	const drawerSettings: DrawerSettings = {
-		id: 'plant-filter',
-		position: 'bottom',
-		meta: { foo: 'bar', fizz: 'buzz', age: 40 },
-
-		padding: 'p-4'
-	};
-	drawerStore.open(drawerSettings);
 </script>
 
-<div>
-	<button on:click={() => drawerStore.open(drawerSettings)}> Open Drawer </button>
-	<div>{$drawerStore.meta}</div>
+<div class="m-4">
+	<div class="flex justify-between">
+		<h2 class="text-2xl">Filter</h2>
+
+		<button on:click={() => drawerStore.close()}>x</button>
+	</div>
+
+	<form>
+		<label for="">
+			<span class="font-bold text-lg">Light needed</span>
+			<div class="flex">
+				<span class="w-16">Low</span>
+				<input type="range" class="range" bind:value={$plantFilterStore.light_level} max="2" />
+				<span class="w-16 text-end">High</span>
+			</div>
+		</label>
+	</form>
 </div>
