@@ -6,9 +6,7 @@
 	const drawerSettings: DrawerSettings = {
 		id: 'plant-filter',
 		position: 'bottom',
-		meta: { foo: 'bar', fizz: 'buzz', age: 40 },
-
-		padding: 'p-4'
+		meta: { foo: 'bar', fizz: 'buzz', age: 40 }
 	};
 </script>
 

@@ -36,7 +36,6 @@
 
 <div>
 	<h2 class="text-2xl">Browse plants</h2>
-	{data.filters.light_level}
 	<div class="flex justify-between">
 		<input type="search" placeholder="Monstera" />
 		<!-- <button class="btn variant-filled">Filters</button> -->
