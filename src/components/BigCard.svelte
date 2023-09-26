@@ -6,9 +6,9 @@
 	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
 </script>
 
-<div class="mb-8 border-2 border-b-[12px] bg-white border-black rounded-lg">
-	<a class="card" href={link}>
-		<div class="h-full w-full">
+<div class="mb-8 border-2 border-b-8 border-r-8 bg-white border-black rounded-lg">
+	<a class="card bg-red-300" href={link}>
+		<div class="h-full w-full  rounded-lg">
 			<header class="card-header h-64 p-0">
 				<img
 					src={plant.cover_img}
