@@ -3,7 +3,7 @@
 
 	function getStats(plant: Plant) {
 		let stats = [];
-		let light_val = '';
+/* 		let light_val = '';
 
 		switch (plant.light_level) {
 			case 0:
@@ -34,9 +34,12 @@
 			default:
 				water_val = 'Some';
 				break;
-		}
-		stats.push({ name: 'Light needed', value: light_val });
-		stats.push({ name: 'Watering Frequency', value: water_val });
+		} */
+		stats.push({
+			name: 'Light',
+			value: `${plant.ideallight.replace('.', '')}, ${plant.toleratedlight.replace('.', '')}`
+		});
+		stats.push({ name: 'Watering', value: `${plant.watering}` });
 		return stats;
 	}
 </script>
@@ -47,13 +50,13 @@
 			<div class="bg-white border-black border-2 border-b-4 rounded-lg">
 				<header class="card-header h-80 p-0">
 					<img
-						src={data.plant.image_url}
+						src={data.plant.cover_img}
 						class="object-cover object-center h-full w-full rounded-lg rounded-b-none"
 						alt=""
 					/>
 				</header>
 				<div class="p-2 pt-0">
-					<div class="text-gray-500 font-light text-sm mt-2 -mb-1">Scientific name</div>
+					<div class="text-gray-500 font-light text-sm mt-2 -mb-1">{data.plant.latin}</div>
 					<div class="text-3xl h2">{data.plant.name}</div>
 				</div>
 			</div>

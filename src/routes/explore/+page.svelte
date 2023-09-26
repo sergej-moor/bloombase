@@ -5,29 +5,37 @@
 	export let data;
 
 	const plants = data.plants.map((plant) => {
-		const plantObj: Plant = {
+		const plantObj: PlantCard = {
 			id: plant.id,
-			name: plant.name,
-			image_url: plant.image_url,
+			latin: plant.latin,
+			name: plant.common,
+			category: plant.category,
+
+			use: plant.use.split(','),
+			cover_img: plant.cover_img,
 			light_level: plant.light_level,
-			water_frequency: plant.water_frequency,
-			pet_friendly: plant.pet_friendly,
-			experience: plant.experience
+			watering_frequency: plant.watering_frequency,
+			pet_friendly: true,
+			experience: 0
 		};
 		return plantObj;
 	});
+
+	console.log(data.filters);
+
 	const filteredPlants = (filters: PlantFilter) => {
 		return plants.filter(
 			(plant) =>
-				plant.light_level >= filters.light_level &&
-				plant.water_frequency >= filters.water_frequency &&
-				plant.experience >= filters.experience /* &&
+				plant.light_level <= filters.light_level &&
+				plant.watering_frequency <= filters.water_frequency &&
+				plant.experience <= filters.experience /* &&
 				(filters.pet_friendly ? filters.pet_friendly == plant.pet_friendly : true) */
 		);
 	};
-	let plantsFiltered: Array<Plant>;
+	let plantsFiltered: Array<PlantCard>;
 
 	plantsFiltered = filteredPlants(data.filters);
+
 	setFilter(data.filters);
 	plantFilterStore.subscribe((filters) => {
 		plantsFiltered = filteredPlants(filters);

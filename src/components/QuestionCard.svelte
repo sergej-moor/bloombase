@@ -6,14 +6,15 @@
 	export let question: Question = {
 		title: '',
 		type: '',
-		answers: []
+		answers: [],
+		answerValues: []
 	};
 	export let index: number;
 
-	export function answerQuestion(answer: number) {
+	export function answerQuestion(answerValue: number) {
 		let query = new URLSearchParams($page.url.searchParams.toString());
 		query.set('question', (index + 1).toString());
-		query.set(question.type, answer.toString());
+		query.set(question.type, answerValue.toString());
 		goto(`?${query.toString()}`);
 
 		nextQuestion();
@@ -39,7 +40,7 @@
 				{#each question.answers as answer, index}
 					<!-- content here -->
 					<button
-						on:click={() => answerQuestion(index)}
+						on:click={() => answerQuestion(question.answerValues[index])}
 						type="button"
 						class="bg-white block rounded-lg border-black border border-b-4 p-2 text-center font-bold"
 					>

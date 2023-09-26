@@ -1,7 +1,7 @@
 <script lang="ts">
 	import IconBaselineFavorite from '~icons/ic/baseline-favorite';
 	import slugify from '@sindresorhus/slugify';
-	export let plant: Plant;
+	export let plant: PlantCard;
 
 	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
 </script>
@@ -11,7 +11,7 @@
 		<div class="h-full w-full">
 			<header class="card-header h-64 p-0">
 				<img
-					src={plant.image_url}
+					src={plant.cover_img}
 					class="object-cover object-center rounded-lg rounded-b-none border-b border-black h-full w-full"
 					alt=""
 				/>
@@ -21,7 +21,7 @@
 					class=" text-center w-full
 				"
 				>
-					<p class="font-light pl-2 -mb-1">Monstera oblerase</p>
+					<p class="font-light pl-2 -mb-1">{plant.latin}</p>
 					<h2 class="text-2xl font-bold p-2 pt-0">{plant.name}</h2>
 				</div>
 				<!-- <div class="m-2 bg-red-300"><IconBaselineFavorite class="h-8 w-8" /></div> -->

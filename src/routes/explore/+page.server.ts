@@ -6,9 +6,9 @@ export const load = async ({ url }) => {
 	/* console.log(searchParams); */
 
 	const filter: PlantFilter = {
-		water_frequency: 0,
-		light_level: 0,
-		pet_friendly: false,
+		water_frequency: 2,
+		light_level: 2,
+		pet_friendly: true,
 		experience: 0
 	};
 
@@ -33,7 +33,7 @@ export const load = async ({ url }) => {
 
 	//fetch call or graphql client
 
-	const { data } = await supabase.from('plants').select();
+	const { data } = await supabase.from('houseplants').select().limit(50);
 	return {
 		plants: data ?? [],
 		filters: filter

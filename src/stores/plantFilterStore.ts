@@ -1,9 +1,9 @@
 import { writable, get } from 'svelte/store';
 
 const baseFilter: PlantFilter = {
-	experience: 0,
-	water_frequency: 0,
-	light_level: 0,
+	experience: 2,
+	water_frequency: 2,
+	light_level: 2,
 	pet_friendly: true
 };
 
