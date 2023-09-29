@@ -3,8 +3,6 @@
 // and what to do when importing types
 /* import 'unplugin-icons/types/svelte'; */
 
-import { SupabaseClient, Session } from '@supabase/supabase-js'
-import { Database } from './DatabaseDefinitions'
 
 declare global {
   namespace App {
@@ -68,3 +66,5 @@ interface Plant {
 	pet_friendly: boolean;
 	experience: number;
 }
+import { SupabaseClient, Session } from '@supabase/supabase-js'
+import { Database } from './DatabaseDefinitions'

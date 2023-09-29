@@ -58,7 +58,6 @@
 </script>
 
 <div>
-	<LoadResults />
 	{#if currentQuestionIndex <= lastQuestionIndex}
 		<div class="mt-8" />
 		<!-- <progress value={currentQuestionIndex + 1} max={lastQuestionIndex + 2} /> -->

@@ -25,7 +25,7 @@
 		return plantObj;
 	});
 
-	console.log(data.filters);
+	
 
 	const filteredPlants = (filters: PlantFilter) => {
 		return plants.filter(
