@@ -7,7 +7,7 @@
 	const drawerSettings: DrawerSettings = {
 		id: 'main-navigation',
 		position: 'left',
-		width: 'w-4/6'
+		width: 'w-full'
 	};
 	/* drawerStore.open(drawerSettings); */
 </script>

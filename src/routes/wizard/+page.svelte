@@ -3,6 +3,7 @@
 	import LoadResults from '../../components/LoadResults.svelte';
 	import type { PageData } from './$types';
 	import { questionIndexStore } from '../../stores/questionIndexStore';
+	import ProgressBar from '../../components/ProgressBar.svelte';
 
 	//7 fragen abspeichern
 	//
@@ -57,9 +58,11 @@
 </script>
 
 <div>
+	<LoadResults />
 	{#if currentQuestionIndex <= lastQuestionIndex}
 		<div class="mt-8" />
-		<progress value={currentQuestionIndex + 1} max={lastQuestionIndex + 2} />
+		<!-- <progress value={currentQuestionIndex + 1} max={lastQuestionIndex + 2} /> -->
+		<ProgressBar maxValue={lastQuestionIndex + 1} value={currentQuestionIndex} />
 		<div class="mt-16" />
 		<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
 	{:else}

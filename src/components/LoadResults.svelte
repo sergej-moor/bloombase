@@ -12,8 +12,14 @@
 	}, 1000);
 </script>
 
-<div class="flex flex-col gap-8 justify-center items-center h-full -mt-12">
-	<h2 class="text-2xl font-bold">Awesome!</h2>
-	<ProgressRadial stroke={100} meter="stroke-primary-500" track="stroke-primary-500/30" />
-	<p class="text-center">Searching for your next <br /> houseplants...</p>
+<div class="h-screen">
+	<div
+		class="flex flex-col gap-8 justify-center items-center my-16 py-16 bg-yellow-400 rounded-lg border-black border-2"
+	>
+		<h2 class="text-6xl font-bold">Thanks!</h2>
+		<ProgressRadial stroke={100} meter="stroke-white" track="stroke-black" />
+		<p class="text-center text-2xl font-semibold">
+			We're searching for your next <br /> houseplants...
+		</p>
+	</div>
 </div>

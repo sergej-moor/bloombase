@@ -9,11 +9,13 @@
 		meta: { foo: 'bar', fizz: 'buzz', age: 40 },
 		rounded: 'rounded-lg'
 	};
+
+	/* drawerStore.open(drawerSettings); */
 </script>
 
 <div>
 	<button
-		class="bg-yellow-400 btn border-black border rounded-lg flex"
+		class="bg-yellow-400 btn border-black border rounded-lg flex w-44"
 		on:click={() => drawerStore.open(drawerSettings)}
 	>
 		<IconBaselineFilterAlt />

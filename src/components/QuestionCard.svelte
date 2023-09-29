@@ -34,8 +34,8 @@
 <div class="flex flex-col justify-between h-full my-4">
 	<div class="flex flex-col justify-between h-full">
 		<div>
-			<p class="text-sm">Question {index + 1}</p>
-			<h2 class="text-3xl mb-16">{question.title}</h2>
+			<p class="text-sm font-bold">Question {index + 1}</p>
+			<h2 class="text-3xl mb-16 font-bold">{question.title}</h2>
 			<div class="answer-box flex flex-col gap-2">
 				{#each question.answers as answer, index}
 					<!-- content here -->

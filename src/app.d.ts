@@ -3,13 +3,22 @@
 // and what to do when importing types
 /* import 'unplugin-icons/types/svelte'; */
 
-declare namespace App {
-	// interface Locals {}
-	// interface PageData {}
-	// interface Error {}
-	// interface Platform {}
-}
+import { SupabaseClient, Session } from '@supabase/supabase-js'
+import { Database } from './DatabaseDefinitions'
 
+declare global {
+  namespace App {
+    interface Locals {
+      supabase: SupabaseClient<Database>
+      getSession(): Promise<Session | null>
+    }
+    interface PageData {
+      session: Session | null
+    }
+    // interface Error {}
+    // interface Platform {}
+  }
+}
 interface Question {
 	title: string;
 	type: string; //used to know about which attribute this question is about
