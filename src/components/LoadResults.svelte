@@ -16,9 +16,9 @@
 	<div
 		class="flex flex-col gap-8 justify-center items-center my-16 py-16 bg-yellow-400 rounded-lg border-black border-2"
 	>
-		<h2 class="text-6xl font-bold">Thanks!</h2>
+		<h2 class="text-4xl font-bold">Thanks!</h2>
 		<ProgressRadial stroke={100} meter="stroke-white" track="stroke-black" />
-		<p class="text-center text-2xl font-semibold">
+		<p class="text-center text-xl font-semibold">
 			We're searching for your next <br /> houseplants...
 		</p>
 	</div>

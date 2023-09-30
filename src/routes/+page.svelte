@@ -15,7 +15,7 @@
 					href="/wizard"
 					class="block h-full bg-yellow-400 rounded-lg border-black border border-b-4 p-2 py-4 text-center font-bold text-lg"
 				>
-					Find Your Dream Houseplants</a
+					🔮 Use the Plant Wizard 🔮</a
 				>
 			</div>
 			<!-- <div class="flex justify-center font-light italic">or</div> -->
@@ -26,6 +26,8 @@
 				>
 					Browse all plants</a
 				>
+
+				<a href="/auth" class="block text-center m-2">Sign up / Sign in</a>
 			</div>
 		</div>
 	</div>
