@@ -3,19 +3,21 @@
 // and what to do when importing types
 /* import 'unplugin-icons/types/svelte'; */
 
+import { SupabaseClient, Session } from '@supabase/supabase-js';
+import { Database } from './DatabaseDefinitions';
 
 declare global {
-  namespace App {
-    interface Locals {
-      supabase: SupabaseClient<Database>
-      getSession(): Promise<Session | null>
-    }
-    interface PageData {
-      session: Session | null
-    }
-    // interface Error {}
-    // interface Platform {}
-  }
+	namespace App {
+		interface Locals {
+			supabase: SupabaseClient<Database>;
+			getSession(): Promise<Session | null>;
+		}
+		interface PageData {
+			session: Session | null;
+		}
+		// interface Error {}
+		// interface Platform {}
+	}
 }
 interface Question {
 	title: string;
@@ -66,5 +68,5 @@ interface Plant {
 	pet_friendly: boolean;
 	experience: number;
 }
-import { SupabaseClient, Session } from '@supabase/supabase-js'
-import { Database } from './DatabaseDefinitions'
+import { SupabaseClient, Session } from '@supabase/supabase-js';
+import { Database } from './DatabaseDefinitions';
