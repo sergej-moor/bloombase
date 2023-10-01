@@ -9,7 +9,7 @@
 		position: 'left',
 		width: 'w-full'
 	};
-	/* drawerStore.open(drawerSettings); */
+	/* drawerStore.open(drawerSettings);  */
 </script>
 
 <div class="flex flex-end">

@@ -8,7 +8,7 @@
 	//7 fragen abspeichern
 	//
 	import { page } from '$app/stores';
-
+	export let data;
 	let questions: Array<Question> = [
 		{
 			title: 'How experienced are you with plants?',
@@ -48,6 +48,7 @@
 	const question = url.searchParams.get('question');
 	let currentQuestionIndex: number = 0;
 
+	
 	questionIndexStore.subscribe((value) => {
 		currentQuestionIndex = value;
 	});
@@ -55,6 +56,7 @@
 	/* console.log(currentQuestionIndex); */
 
 	let lastQuestionIndex: number = questions.length - 1;
+	let loadResults: boolean = false;
 </script>
 
 <div>
@@ -65,7 +67,6 @@
 		<div class="mt-16" />
 		<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
 	{:else}
-		<!-- else content here -->
 		<LoadResults />
 	{/if}
 </div>

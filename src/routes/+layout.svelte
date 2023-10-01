@@ -1,6 +1,8 @@
 <script lang="ts">
 	import '../app.postcss';
-
+	import { Toast, getToastStore } from '@skeletonlabs/skeleton';
+	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
+	import NavMenu from '../components/NavMenu.svelte';
 	/* EVENT LISTENER SUPABASE */
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -30,11 +32,7 @@
 
 	initializeStores();
 	const drawerStore = getDrawerStore();
-
-	function navigate(link: string) {
-		drawerStore.close();
-		goto(link);
-	}
+	const toastStore = getToastStore();
 
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
@@ -43,7 +41,7 @@
 	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
 	import NavigationButton from '../components/NavigationButton.svelte';
 	import FilterDrawer from '../components/FilterDrawer.svelte';
-	import { goto } from '$app/navigation';
+
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	import { onNavigate } from '$app/navigation';
@@ -59,36 +57,16 @@
 			});
 		});
 	});
-
-	const links = [
-		{ name: 'Plant Finder 🔎', url: '/wizard' },
-		{ name: 'Explore 🪴', url: '/explore' },
-		{ name: 'About 👤', url: '/about' },
-		{ name: 'Contact 👋', url: '/contact' }
-	];
 </script>
 
+<Toast rounded="rounded-lg" />
 <Drawer>
 	{#if $drawerStore.id === 'plant-filter'}
 		<div class=" h-full bg-yellow-400 border-2 border-black rounded-lg rounded-b-none">
 			<FilterDrawer />
 		</div>
 	{:else if $drawerStore.id === 'main-navigation'}
-		<div class="flex flex-col h-full bg-green-600">
-			<div class="flex justify-between items-start border-b-2 border-black p-4 bg-green-600">
-				<button on:click={() => navigate('/')} class="text-2xl h2">BloomBase</button>
-				<div />
-				<button on:click={() => drawerStore.close()}><IconBaselineClose class="w-8 h-8 " /></button>
-			</div>
-
-			<ul class="flex flex-col text-xl font-semibold px-4">
-				{#each links as link}
-					<li class="border-b-2 py-4 -mx-4 px-4 leading-loose border-black bg-yellow-400">
-						<button on:click={() => navigate(link.url)}>{link.name}</button>
-					</li>
-				{/each}
-			</ul>
-		</div>
+		<NavMenu {data} />
 	{/if}
 </Drawer>
 <AppShell>
