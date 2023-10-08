@@ -6,7 +6,11 @@
 	import FilterButton from '../../components/FilterButton.svelte';
 	import PlantCategory from '../../components/PlantCategory.svelte';
 	import { plantFilterStore, setFilter } from '../../stores/plantFilterStore';
+	import type { PlantCard, PlantFilter } from '../../app';
 	export let data;
+
+	let { supabase, session } = data;
+	$: ({ supabase, session } = data);
 
 	const plants = data.plants.map((plant) => {
 		const plantObj: PlantCard = {
@@ -24,8 +28,6 @@
 		};
 		return plantObj;
 	});
-
-	
 
 	const filteredPlants = (filters: PlantFilter) => {
 		return plants.filter(
@@ -45,7 +47,7 @@
 		plantsFiltered = filteredPlants(filters);
 	});
 
-	let activeView = 1;
+	let activeView = 0;
 
 	const plantsByCategory = (category: String) => {
 		return plants.filter((plant) => plant.category.includes(category));
@@ -107,14 +109,14 @@
 				<!-- content here -->
 				<ul class="grid grid-cols-2 gap-x-2 gap-y-4">
 					{#each plantsFiltered as plant}
-						<li><SmallCard {plant} /></li>
+						<li><SmallCard {plant} {supabase} {session} /></li>
 					{/each}
 				</ul>
 			{:else}
 				<!-- else content here -->
 				<ul class="">
 					{#each plantsFiltered as plant}
-						<li><BigCard {plant} /></li>
+						<li><BigCard {plant} {supabase} {session} /></li>
 					{/each}
 				</ul>
 			{/if}

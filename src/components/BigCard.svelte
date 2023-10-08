@@ -1,14 +1,64 @@
 <script lang="ts">
 	import IconBaselineFavorite from '~icons/ic/baseline-favorite';
 	import slugify from '@sindresorhus/slugify';
+	import type { Session, SupabaseClient } from '@supabase/supabase-js';
+
+	import type { PlantCard } from '../app';
+
 	export let plant: PlantCard;
+	export let supabase: SupabaseClient;
+	export let session: Session;
 
 	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
+
+	let liked = false;
+	async function isLiked() {
+		let res = await supabase
+			.from('likes')
+			.select()
+			.eq('user_id', session.user.id)
+			.eq('plant_id', plant.id);
+
+		if (!res.data) return false;
+		liked = res.data.length > 0;
+		return res;
+	}
+
+	async function toggleLike() {
+		/* 		
+		console.log();
+		console.log(plant.id); */
+		let res = await isLiked();
+
+		if (!res.data) return false;
+		if (res.data.length == 0) {
+			//like
+			let res = await supabase
+				.from('likes')
+				.insert({ user_id: session.user.id, plant_id: plant.id });
+
+			liked = true;
+		} else {
+			//unlike
+			const { error } = await supabase
+				.from('likes')
+				.delete()
+				.eq('user_id', session.user.id)
+				.eq('plant_id', plant.id);
+
+			liked = false;
+		}
+		/* 
+		guck in supabase, ob der eintrag geliked ist
+		wenn nein, dann füge einen eintrag hinzu
+		wenn ja, dann entferne den eintrag aus supabase
+		*/
+	}
 </script>
 
-<div class="mb-8 border-2 border-b-8 border-r-8 bg-white border-black rounded-lg">
+<div class="mb-8 border-2 border-b-8 border-r-8 bg-white border-black rounded-lg relative">
 	<a class="card bg-red-300" href={link}>
-		<div class="h-full w-full  rounded-lg">
+		<div class="h-full w-full rounded-lg">
 			<header class="card-header h-64 p-0">
 				<img
 					src={plant.cover_img}
@@ -24,9 +74,24 @@
 					<p class="font-light pl-2 -mb-1">{plant.latin}</p>
 					<h2 class="text-2xl font-bold p-2 pt-0">{plant.name}</h2>
 				</div>
-				<!-- <div class="m-2 bg-red-300"><IconBaselineFavorite class="h-8 w-8" /></div> -->
+
+				<!--  -->
 			</section>
 			<!-- <footer class="card-footer">(footer)</footer> -->
 		</div>
 	</a>
+	{#if session}
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		{#await isLiked() then like}
+			<!-- promise was fulfilled -->
+			<div on:click={() => toggleLike()} class="m-2 absolute top-0 right-0">
+				<IconBaselineFavorite
+					class={liked
+						? 'text-yellow-400 h-8 w-8 border-2 border-black bg-black'
+						: 'text-white h-8 w-8 border-2 border-black bg-black'}
+				/>
+			</div>
+		{/await}
+	{/if}
 </div>

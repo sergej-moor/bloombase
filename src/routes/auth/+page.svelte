@@ -7,9 +7,9 @@
 		background: 'bg-yellow-400',
 		hideDismiss: true,
 		classes: 'rounded-2xl border-black border-2 border-b-4 border-r-4 font-semibold',
-		timeout: 8000,
+		timeout: 8000
 	};
-
+	import { supabaseClient } from '$lib/supabaseClient';
 	const toastStore = getToastStore();
 
 	/* 	import { createEventDispatcher } from 'svelte';
@@ -27,8 +27,6 @@
 	let password: string;
 	let showSignUpFeedback: boolean;
 
-	
-
 	const handleSignUp = async () => {
 		let res = await supabase.auth.signUp({
 			email,
@@ -37,12 +35,18 @@
 				emailRedirectTo: `${location.origin}/auth/callback`
 			}
 		});
-		console.log('Sign up');
+		/* console.log('Sign up');
 		console.log(data.session);
-		console.log(res);
+		console.log(res); */
 		if (!res.error && res.data) {
 			/* showSignUpFeedback = true; */
 			toastStore.trigger(checkMailToast);
+			// s
+
+			/* const auth_uid = res.data.user.id; //session.
+			const name = res.data.user.email;
+			const { error } = await supabase.from('user').insert({ auth_id: auth_uid, username: name });
+			console.log(error); */
 		}
 	};
 
@@ -51,9 +55,9 @@
 			email,
 			password
 		});
-		console.log('Sign in');
+		/* console.log('Sign in');
 		console.log(data.session);
-		console.log(res);
+		console.log(res); */
 	};
 </script>
 

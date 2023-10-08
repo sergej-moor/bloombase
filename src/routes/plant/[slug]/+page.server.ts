@@ -1,13 +1,15 @@
-import { supabase } from '$lib/supabaseClient';
+import { supabaseClient } from '$lib/supabaseClient';
 
-export const load = async ({ params }) => {
+export const load = async ({ params, locals: { supabase, getSession } }) => {
+	const session = await getSession();
+
 	function getPlantId() {
 		const firstNumber = new RegExp(/(\d+)/m);
 		const id = params.slug.match(firstNumber) ?? ['-1'];
 		return parseInt(id[0]);
 	}
 
-	const { data } = await supabase.from('houseplants').select().eq('id', getPlantId());
+	const { data } = await supabaseClient.from('houseplants').select().eq('id', getPlantId());
 	const plant = data !== null ? data[0] : {};
 
 	const fetchedPlant: Plant = {
@@ -34,6 +36,8 @@ export const load = async ({ params }) => {
 	};
 	return {
 		slug: params.slug,
-		plant: fetchedPlant
+		plant: fetchedPlant,
+		session: session,
+		
 	};
 };

@@ -1,6 +1,9 @@
-import { supabase } from '$lib/supabaseClient';
+import { supabaseClient } from '$lib/supabaseClient';
+import { fail, redirect } from '@sveltejs/kit';
+import type { PlantFilter } from '../../app';
+export const load = async ({ url, locals: { supabase, getSession } }) => {
+	const session = await getSession();
 
-export const load = async ({ url }) => {
 	//get filters from url
 	const searchParams = url.searchParams;
 	/* console.log(searchParams); */
@@ -33,9 +36,14 @@ export const load = async ({ url }) => {
 
 	//fetch call or graphql client
 
-	const { data } = await supabase.from('houseplants').select().limit(50);
+	const { data } = await supabaseClient.from('houseplants').select().limit(50);
+	/* data?.map((plant) => {
+		plant.liked = false;
+		
+	}) */
 	return {
 		plants: data ?? [],
-		filters: filter
+		filters: filter,
+		session
 	};
 };

@@ -1,6 +1,10 @@
 <script lang="ts">
 	import IconSharpArrowBack from '~icons/ic/sharp-arrow-back';
+	import IconBaselineFavorite from '~icons/ic/baseline-favorite';
 	export let data;
+	let liked = false;
+	let { session, supabase } = data;
+	$: ({ session, supabase } = data);
 
 	function getStats(plant: Plant) {
 		let stats = [];
@@ -20,6 +24,44 @@
 	function getTemperatureText() {
 		return `The ideal temperature lies between ${data.plant.tempmin}°C and ${data.plant.tempmax}°C.`;
 	}
+
+	async function isLiked() {
+		let res = await supabase
+			.from('likes')
+			.select()
+			.eq('user_id', session.user.id)
+			.eq('plant_id', data.plant.id);
+
+		if (!res.data) return false;
+		liked = res.data.length > 0;
+		return res;
+	}
+
+	async function toggleLike() {
+		/* 		
+		console.log();
+		console.log(plant.id); */
+		let res = await isLiked();
+		console.log(res);
+		if (!res.data) return false;
+		if (res.data.length == 0) {
+			//like
+			let res = await supabase
+				.from('likes')
+				.insert({ user_id: session.user.id, plant_id: data.plant.id });
+
+			liked = true;
+		} else {
+			//unlike
+			const { error } = await supabase
+				.from('likes')
+				.delete()
+				.eq('user_id', session.user.id)
+				.eq('plant_id', data.plant.id);
+
+			liked = false;
+		}
+	}
 </script>
 
 <div class="flex justify-center h-full">
@@ -31,12 +73,26 @@
 			>
 
 			<div class="bg-white border-black border-2 border-b-4 border-r-4 rounded-lg">
-				<header class="card-header h-80 p-0">
+				<header class="card-header h-80 p-0 relative">
 					<img
 						src={data.plant.cover_img}
 						class="object-cover object-center h-full w-full rounded-lg rounded-b-none"
 						alt=""
 					/>
+					{#if session}
+						<!-- svelte-ignore a11y-click-events-have-key-events -->
+						<!-- svelte-ignore a11y-no-static-element-interactions -->
+						{#await isLiked() then like}
+							<!-- promise was fulfilled -->
+							<div on:click={() => toggleLike()} class="m-2 top-0 absolute right-0">
+								<IconBaselineFavorite
+									class={liked
+										? 'text-yellow-400 h-8 w-8 border-2 border-black bg-black'
+										: 'text-white h-8 w-8 border-2 border-black bg-black'}
+								/>
+							</div>
+						{/await}
+					{/if}
 				</header>
 				<div class="p-2 pt-0">
 					<div class="text-gray-500 font-light text-sm mt-2 -mb-1">{data.plant.latin}</div>
