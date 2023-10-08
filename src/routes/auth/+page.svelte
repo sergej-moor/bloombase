@@ -4,7 +4,7 @@
 	const checkMailToast: ToastSettings = {
 		message: "Awesome! Confirm your email address by clicking on the link we've sent to you.",
 		// Provide any utility or variant background style:
-		background: 'bg-yellow-400',
+		background: 'bg-secondary',
 		hideDismiss: true,
 		classes: 'rounded-2xl border-black border-2 border-b-4 border-r-4 font-semibold',
 		timeout: 8000
@@ -110,7 +110,7 @@
 				/>
 			</div>
 			{#if !data.session}
-				<button class="btn bg-yellow-400 border-black border-2 border-b-4 border-r-4 rounded-lg"
+				<button class="btn bg-secondary border-black border-2 border-b-4 border-r-4 rounded-lg"
 					>Sign up</button
 				>
 			{/if}

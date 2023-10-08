@@ -19,7 +19,6 @@
 	const handleSubmit: SubmitFunction = () => {
 		loading = true;
 		return async () => {
-	
 			loading = false;
 		};
 	};
@@ -48,7 +47,6 @@
 					bind:url={avatarUrl}
 					size={10}
 					on:upload={() => {
-			
 						profileForm.requestSubmit();
 					}}
 				/>
@@ -88,7 +86,7 @@
 				<div>
 					<input
 						type="submit"
-						class="button block primary bg-yellow-400 p-2 border-black border-2 border-r-4 border-b-4 rounded-lg w-full"
+						class="button block primary bg-secondary p-2 border-black border-2 border-r-4 border-b-4 rounded-lg w-full"
 						value={loading ? 'Loading...' : 'Update Profile'}
 						disabled={loading}
 					/>
@@ -98,7 +96,7 @@
 	</div>
 
 	<div
-		class="flex flex-col bg-yellow-400 p-4 border-black border-2 border-r-4 border-b-4 rounded-lg"
+		class="flex flex-col bg-secondary p-4 border-black border-2 border-r-4 border-b-4 rounded-lg"
 	>
 		<!-- 	<h2>My Collection</h2> -->
 		<a class="text-xl font-bold text-center block" href="/collection">Go to my collection -></a>

@@ -3,6 +3,18 @@
 @tailwind utilities;
 @tailwind variants;
 
+@layer components {
+	.cardbox {
+		background-color: theme('colors.white');
+		border-radius: theme('borderRadius.lg');
+		border-width: theme('borderWidth.2');
+		border-bottom-width: theme('borderWidth.4');
+		border-right-width: theme('borderWidth.4');
+		border-color: theme('colors.black');
+		padding: theme('padding.4');
+	}
+}
+
 @font-face {
 	/* Reference name */
 	font-family: 'Philosopher';

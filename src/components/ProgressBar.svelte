@@ -10,7 +10,7 @@
 			<div class="w-full">
 				<li
 					class="border border-black rounded-lg bg-white text-transparent"
-					class:bg-yellow-400={i <= value}
+					class:bg-secondary={i <= value}
 				>
 					{i + 1}
 				</li>

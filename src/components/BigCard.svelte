@@ -88,7 +88,7 @@
 			<div on:click={() => toggleLike()} class="m-2 absolute top-0 right-0">
 				<IconBaselineFavorite
 					class={liked
-						? 'text-yellow-400 h-8 w-8 border-2 border-black bg-black'
+						? 'text-secondary h-8 w-8 border-2 border-black bg-black'
 						: 'text-white h-8 w-8 border-2 border-black bg-black'}
 				/>
 			</div>

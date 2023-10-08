@@ -13,7 +13,7 @@
 			<div class="w-full">
 				<a
 					href="/wizard"
-					class="block h-full bg-yellow-400 rounded-lg border-black border border-b-4 p-2 py-4 text-center font-bold text-lg"
+					class="block h-full bg-secondary rounded-lg border-black border border-b-4 p-2 py-4 text-center font-bold text-lg"
 				>
 					🔮 Use the Plant Wizard 🔮</a
 				>

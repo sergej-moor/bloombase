@@ -14,7 +14,7 @@
 
 <div class="h-screen">
 	<div
-		class="flex flex-col gap-8 justify-center items-center my-16 py-16 bg-yellow-400 rounded-lg border-black border-2"
+		class="flex flex-col gap-8 justify-center items-center my-16 py-16 bg-secondary rounded-lg border-black border-2"
 	>
 		<h2 class="text-4xl font-bold">Thanks!</h2>
 		<ProgressRadial stroke={100} meter="stroke-white" track="stroke-black" />

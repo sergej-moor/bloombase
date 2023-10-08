@@ -42,7 +42,7 @@
 		console.log();
 		console.log(plant.id); */
 		let res = await isLiked();
-		console.log(res);
+
 		if (!res.data) return false;
 		if (res.data.length == 0) {
 			//like
@@ -87,7 +87,7 @@
 							<div on:click={() => toggleLike()} class="m-2 top-0 absolute right-0">
 								<IconBaselineFavorite
 									class={liked
-										? 'text-yellow-400 h-8 w-8 border-2 border-black bg-black'
+										? 'text-secondary h-8 w-8 border-2 border-black bg-black'
 										: 'text-white h-8 w-8 border-2 border-black bg-black'}
 								/>
 							</div>

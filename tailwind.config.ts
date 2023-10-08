@@ -11,7 +11,14 @@ export default {
 		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
 	],
 	theme: {
-		extend: {}
+		extend: {
+			colors: {
+				bg: '#fefcf0',
+				primary: '#009F69',
+				secondary: '#ffa6fb',
+				bgsecondary: '#0b4d28'
+			}
+		}
 	},
 	plugins: [
 		forms,

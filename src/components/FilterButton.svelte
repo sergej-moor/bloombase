@@ -15,7 +15,7 @@
 
 <div>
 	<button
-		class="bg-yellow-400 btn border-black border rounded-lg flex w-44"
+		class="bg-secondary btn border-black border rounded-lg flex w-44"
 		on:click={() => drawerStore.open(drawerSettings)}
 	>
 		<IconBaselineFilterAlt />

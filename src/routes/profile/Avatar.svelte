@@ -70,7 +70,7 @@
 	<label for="single" class="flex justify-center flex-col">
 		{#if uploading}
 			<div
-				class="flex justify-center items-center avatar image rounded-full border-black border-2 border-b-4 border-r-4 h-64 w-64 bg-yellow-400"
+				class="flex justify-center items-center avatar image rounded-full border-black border-2 border-b-4 border-r-4 h-64 w-64 bg-secondary"
 			>
 				<ProgressRadial stroke={50} meter="stroke-white" track="stroke-black" class="" />
 			</div>
@@ -90,7 +90,7 @@
 
 	<div>
 		<!-- 		<label
-			class="button primary block bg-yellow-400 p-2 border-black border-2 border-r-4 border-b-4 rounded-lg text-center"
+			class="button primary block bg-secondary p-2 border-black border-2 border-r-4 border-b-4 rounded-lg text-center"
 			for="single"
 		>
 			{uploading ? 'Uploading ...' : 'Upload Image'}

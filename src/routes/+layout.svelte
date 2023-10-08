@@ -62,7 +62,7 @@
 <Toast rounded="rounded-lg" />
 <Drawer>
 	{#if $drawerStore.id === 'plant-filter'}
-		<div class=" h-full bg-yellow-400 border-2 border-black rounded-lg rounded-b-none">
+		<div class=" h-full bg-secondary border-2 border-black rounded-lg rounded-b-none">
 			<FilterDrawer />
 		</div>
 	{:else if $drawerStore.id === 'main-navigation'}
@@ -71,18 +71,18 @@
 </Drawer>
 <AppShell>
 	<svelte:fragment slot="header">
-		<AppBar padding={'p-2'} border={'border-black border-b-2'}>
+		<AppBar background="bg-primary" padding={'p-2'} border={'border-black border-b-2'}>
 			<svelte:fragment slot="lead"><div><NavigationButton /></div></svelte:fragment>
 
 			<svelte:fragment slot="trail">
 				<div class="">
 					<!-- <img src="logo_small.png" class="w-full h-full mb-1" alt="" /> -->
-					<a href="/"> <IconBaselineSpa class="w-8 h-8  text-green-600" /></a>
+					<a href="/"> <IconBaselineSpa class="w-8 h-8  text-black" /></a>
 				</div>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<div class="flex justify-center h-full px-2 bg-green-600">
+	<div class="flex justify-center h-full px-2 bg-bg">
 		<div class="flex flex-col gap-4 min-w-full md:min-w-[750px]">
 			<div class="h-full">
 				<slot><!-- optional fallback --></slot>

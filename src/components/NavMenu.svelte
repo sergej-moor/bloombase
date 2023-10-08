@@ -33,7 +33,7 @@
 	const signOutToast: ToastSettings = {
 		message: 'Successfully signed out!',
 		// Provide any utility or variant background style:
-		background: 'bg-yellow-400',
+		background: 'bg-secondary',
 		hideDismiss: true,
 		classes: 'border-black border-2 border-b-4 border-r-4 font-semibold',
 
@@ -54,9 +54,9 @@
 	};
 </script>
 
-<div class="flex flex-col justify-between h-full bg-green-600">
+<div class="flex flex-col justify-between h-full bg-primary">
 	<div>
-		<div class="flex justify-between items-start border-b-2 border-black p-4 bg-green-600">
+		<div class="flex justify-between items-start border-b-2 border-black p-4 bg-primary">
 			<button on:click={() => navigate('/')} class="text-2xl h2">BloomBase</button>
 			<div />
 			<button on:click={() => drawerStore.close()}><IconBaselineClose class="w-8 h-8 " /></button>
@@ -64,7 +64,7 @@
 
 		<ul class="flex flex-col text-xl font-semibold px-4">
 			{#each links as link}
-				<li class="border-b-2 py-4 -mx-4 px-4 leading-loose border-black bg-yellow-400">
+				<li class="border-b-2 py-4 -mx-4 px-4 leading-loose border-black bg-bg">
 					<button on:click={() => navigate(link.url)}>{link.name}</button>
 				</li>
 			{/each}
@@ -72,7 +72,7 @@
 			{#if data.session}
 				<!-- content here -->
 				{#each userLinks as link}
-					<li class="border-b-2 py-4 -mx-4 px-4 leading-loose border-black bg-yellow-400">
+					<li class="border-b-2 py-4 -mx-4 px-4 leading-loose border-black bg-bg">
 						<button on:click={() => navigate(link.url)}>{link.name}</button>
 					</li>
 				{/each}

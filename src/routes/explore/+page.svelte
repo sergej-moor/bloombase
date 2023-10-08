@@ -78,13 +78,13 @@
 
 		<div class="flex gap-x-1 mb-4">
 			<button
-				class:bg-yellow-400={activeView == 0}
-				class="bg-white rounded-lg p-1 border border-black"
+				class:bg-secondary={activeView == 0}
+				class="bg-bg rounded-lg p-1 border border-black"
 				on:click={() => (activeView = 0)}><IconRoundViewAgenda class="w-8 h-8" /></button
 			>
 			<button
-				class="bg-white rounded-lg p-1 border border-black"
-				class:bg-yellow-400={activeView == 1}
+				class="bg-bg rounded-lg p-1 border border-black"
+				class:bg-secondary={activeView == 1}
 				on:click={() => (activeView = 1)}><IconRoundGridView class="w-8 h-8" /></button
 			>
 		</div>
