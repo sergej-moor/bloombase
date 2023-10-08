@@ -1,7 +1,7 @@
 <script lang="ts">
 	import IconBaselineClose from '~icons/ic/baseline-close';
 	import { Drawer, getDrawerStore } from '@skeletonlabs/skeleton';
-	import { goto } from '$app/navigation';
+	import { goto, invalidateAll } from '$app/navigation';
 	const drawerStore = getDrawerStore();
 
 	const links = [
@@ -36,7 +36,7 @@
 		background: 'bg-yellow-400',
 		hideDismiss: true,
 		classes: 'border-black border-2 border-b-4 border-r-4 font-semibold',
-        
+
 		timeout: 3000
 	};
 
@@ -49,6 +49,7 @@
 		if (!res.error) {
 			/* showSignUpFeedback = true; */
 			toastStore.trigger(signOutToast);
+			invalidateAll();
 		}
 	};
 </script>

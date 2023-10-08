@@ -5,6 +5,7 @@
 	import type { PlantCard } from '../app';
 	export let plant: PlantCard;
 
+	
 	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
 
 	export let supabase: SupabaseClient;

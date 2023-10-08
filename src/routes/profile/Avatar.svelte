@@ -50,7 +50,7 @@
 			}
 
 			url = filePath;
-			console.log(url);
+
 			setTimeout(() => {
 				dispatch('upload');
 			}, 200);
@@ -78,7 +78,7 @@
 			<img
 				src={avatarUrl}
 				alt={avatarUrl ? 'Avatar' : 'No image'}
-				class="avatar image rounded-full border-black border-2 border-b-4 border-r-4 h-64 w-64"
+				class="avatar image object-cover rounded-full border-black border-2 border-b-4 border-r-4 h-64 w-64"
 			/>
 		{:else}
 			<div
