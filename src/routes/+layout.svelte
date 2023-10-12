@@ -3,10 +3,11 @@
 	import { Toast, getToastStore } from '@skeletonlabs/skeleton';
 	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
 	import NavMenu from '../components/NavMenu.svelte';
+	import Footer from '../components/Footer.svelte';
 	/* EVENT LISTENER SUPABASE */
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	
+
 	export let data;
 
 	let { supabase, session } = data;
@@ -82,13 +83,14 @@
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<div class="flex justify-center h-full px-2 bg-bg">
+	<div class="flex justify-center h-full px-8 bg-bg">
 		<div class="flex flex-col gap-4 min-w-full md:min-w-[750px]">
 			<div class="h-full">
 				<slot><!-- optional fallback --></slot>
 			</div>
 		</div>
 	</div>
+	<Footer />
 </AppShell>
 
 <style>
