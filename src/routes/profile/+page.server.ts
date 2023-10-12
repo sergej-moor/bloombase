@@ -25,7 +25,7 @@ export const actions = {
 		const avatarUrl = formData.get('avatarUrl') as string;
 
 		const session = await getSession();
-		console.log('qavatar', avatarUrl);
+		
 		const { error } = await supabase.from('profiles').upsert({
 			id: session?.user.id,
 			full_name: fullName,

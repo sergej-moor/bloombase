@@ -16,7 +16,8 @@ export default {
 				bg: '#fefcf0',
 				primary: '#009F69',
 				secondary: '#ffa6fb',
-				bgsecondary: '#0b4d28'
+				bgsecondary: '#0b4d28',
+				error: '#9F0000'
 			}
 		}
 	},

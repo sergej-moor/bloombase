@@ -7,6 +7,7 @@
 	import PlantCategory from '../../components/PlantCategory.svelte';
 	import { plantFilterStore, setFilter } from '../../stores/plantFilterStore';
 	import type { PlantCard, PlantFilter } from '../../app';
+	import InfiniteScroll from './InfiniteScroll.svelte';
 	export let data;
 
 	let { supabase, session } = data;
@@ -41,6 +42,22 @@
 	let plantsFiltered: Array<PlantCard>;
 
 	plantsFiltered = filteredPlants(data.filters);
+	let newBatch: Array<PlantCard> = [];
+	let page = 0;
+	let nextUrl = '';
+
+	function fetchPlants() {
+		let page_length = 5;
+		let start = page * page_length;
+		let end = page * page_length + page_length;
+		newBatch = plantsFiltered.slice(start, end);
+		console.log('fetch plants');
+		return newBatch;
+	}
+
+	let renderedPlants = fetchPlants();
+
+	$: renderedPlants = [...renderedPlants, ...newBatch];
 
 	setFilter(data.filters);
 	plantFilterStore.subscribe((filters) => {
@@ -66,11 +83,12 @@
 		light_level: 2,
 		pet_friendly: true
 	};
+	
 </script>
 
 <div>
 	<h2 class="text-6xl h2 font-bold my-2 mb-8 leading-[0.9]">Discover <br /> plants</h2>
-
+	
 	<div class="flex justify-between mb-4">
 		<!-- <input type="search" disabled class="rounded-lg border border-black" placeholder="Monstera" /> -->
 		<!-- <button class="btn variant-filled">Filters</button> -->
@@ -115,11 +133,22 @@
 			{:else}
 				<!-- else content here -->
 				<ul class="">
-					{#each plantsFiltered as plant}
+					{#each renderedPlants as plant}
 						<li><BigCard {plant} {supabase} {session} /></li>
 					{/each}
+					<InfiniteScroll
+						hasMore={true}
+						threshold={100}
+						on:loadMore={() => {
+							page++;
+							fetchPlants();
+						}}
+						elementScroll={null}
+					/>
 				</ul>
 			{/if}
 		</section>
 	{/if}
 </div>
+
+

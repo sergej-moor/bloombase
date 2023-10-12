@@ -1,4 +1,5 @@
 import { writable, get } from 'svelte/store';
+import type { PlantFilter } from '../app';
 
 const baseFilter: PlantFilter = {
 	experience: 2,
