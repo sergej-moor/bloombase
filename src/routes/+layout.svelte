@@ -41,7 +41,7 @@
 	//SkeletonUI
 	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
 	import NavigationButton from '../components/NavigationButton.svelte';
-	import FilterDrawer from '../components/FilterDrawer.svelte';
+	import FilterDrawer from '../routes/explore/FilterDrawer.svelte';
 
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
@@ -63,7 +63,7 @@
 <Toast rounded="rounded-lg" />
 <Drawer>
 	{#if $drawerStore.id === 'plant-filter'}
-		<div class=" h-full bg-secondary border-2 border-black rounded-lg rounded-b-none">
+		<div class=" h-full bg-bg border-2 border-black rounded-lg rounded-b-none">
 			<FilterDrawer />
 		</div>
 	{:else if $drawerStore.id === 'main-navigation'}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import SmallCard from '../../components/SmallCard.svelte';
-	import BigCard from '../../components/BigCard.svelte';
+	import BigCard from '../explore/BigCard.svelte';
 	import type { Plant, PlantCard } from '../../app';
 
 	export let data;

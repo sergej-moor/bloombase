@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { Plant } from '../../app';
+
 	// your script goes here
 	import SmallCard from './SmallCard.svelte';
 	export let plants: Array<Plant>;

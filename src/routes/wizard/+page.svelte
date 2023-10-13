@@ -1,13 +1,14 @@
 <script lang="ts">
-	import QuestionCard from '../../components/QuestionCard.svelte';
-	import LoadResults from '../../components/LoadResults.svelte';
+	import QuestionCard from './QuestionCard.svelte';
+	import LoadResults from './LoadResults.svelte';
 	import type { PageData } from './$types';
 	import { questionIndexStore } from '../../stores/questionIndexStore';
-	import ProgressBar from '../../components/ProgressBar.svelte';
+	import ProgressBar from './ProgressBar.svelte';
 
 	//7 fragen abspeichern
 	//
 	import { page } from '$app/stores';
+	import type { Question } from '../../app';
 	export let data;
 	let questions: Array<Question> = [
 		{

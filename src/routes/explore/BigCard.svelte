@@ -2,13 +2,14 @@
 	import IconBaselineFavorite from '~icons/ic/baseline-favorite';
 	import slugify from '@sindresorhus/slugify';
 	import type { Session, SupabaseClient } from '@supabase/supabase-js';
-	import type { PlantCard } from '../app';
+
+	import type { PlantCard } from '../../app';
+
 	export let plant: PlantCard;
-
-	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
-
 	export let supabase: SupabaseClient;
 	export let session: Session;
+
+	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
 
 	async function toggleLike() {
 		if (plant.liked) {
@@ -30,26 +31,26 @@
 	}
 </script>
 
-<div class=" border-2 border-b-8 border-r-4 bg-white border-black rounded-lg w-full relative">
+<div class="mb-8 border-2 border-b-8 border-r-8 bg-white border-black rounded-lg relative">
 	<a class="card bg-red-300" href={link}>
 		<div class="h-full w-full rounded-lg">
-			<header class="card-header h-32 min-w-48 p-0">
+			<header class="card-header h-64 p-0">
 				<img
 					src={plant.cover_img}
 					class="object-cover object-center rounded-lg rounded-b-none border-b border-black h-full w-full"
 					alt=""
 				/>
 			</header>
-			<section class="flex justify-between items-center pt-1 h-16">
+			<section class="flex justify-between items-center mt-1">
 				<div
 					class=" text-center w-full
 				"
 				>
-					<!-- <p class="font-light pl-2 -mb-1">{plant.latin}</p> -->
-					<h2 class="text-lg font-bold p-1 pt-0">{plant.name} <br /></h2>
+					<p class="font-light pl-2 -mb-1">{plant.latin}</p>
+					<h2 class="text-2xl font-bold p-2 pt-0">{plant.name}</h2>
 				</div>
 
-				<!-- <div class="m-2 bg-red-300"><IconBaselineFavorite class="h-8 w-8" /></div> -->
+				<!--  -->
 			</section>
 			<!-- <footer class="card-footer">(footer)</footer> -->
 		</div>
@@ -59,11 +60,12 @@
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 
 		<!-- promise was fulfilled -->
-		<div on:click={() => toggleLike()} class="m-2 absolute top-0 right-0">
+		<div on:click={() => toggleLike()} class="m-2 absolute top-0">
+			<div>
+				<IconBaselineFavorite class="text-black h-8 w-8 absolute top-0.5 left-0.5" />
+			</div>
 			<IconBaselineFavorite
-				class={plant.liked
-					? 'text-secondary h-8 w-8 border-2 border-black bg-black'
-					: 'text-white h-8 w-8 border-2 border-black bg-black'}
+				class={plant.liked ? 'text-secondary h-8 w-8 absolute ' : 'text-white h-8 w-8 absolute'}
 			/>
 		</div>
 	{/if}

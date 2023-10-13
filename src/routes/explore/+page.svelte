@@ -1,10 +1,10 @@
 <script lang="ts">
 	import IconRoundGridView from '~icons/ic/round-grid-view';
 	import IconRoundViewAgenda from '~icons/ic/round-view-agenda';
-	import SmallCard from '../../components/SmallCard.svelte';
-	import BigCard from '../../components/BigCard.svelte';
-	import FilterButton from '../../components/FilterButton.svelte';
-	import PlantCategory from '../../components/PlantCategory.svelte';
+	import SmallCard from './SmallCard.svelte';
+	import BigCard from './BigCard.svelte';
+	import FilterButton from './FilterButton.svelte';
+	import PlantCategory from './PlantCategory.svelte';
 	import { plantFilterStore, setFilter } from '../../stores/plantFilterStore';
 	import type { PlantCard, PlantFilter } from '../../app';
 	import InfiniteScroll from './InfiniteScroll.svelte';
@@ -52,7 +52,7 @@
 		let start = page * page_length;
 		let end = page * page_length + page_length;
 		newBatch = plantsFiltered.slice(start, end);
-		console.log('fetch plants');
+
 		return newBatch;
 	}
 
@@ -96,13 +96,13 @@
 
 		<div class="flex gap-x-1 mb-4">
 			<button
-				class:bg-secondary={activeView == 0}
+				class:bg-primary={activeView == 0}
 				class="bg-bg rounded-lg p-1 border border-black"
 				on:click={() => (activeView = 0)}><IconRoundViewAgenda class="w-8 h-8" /></button
 			>
 			<button
 				class="bg-bg rounded-lg p-1 border border-black"
-				class:bg-secondary={activeView == 1}
+				class:bg-primary={activeView == 1}
 				on:click={() => (activeView = 1)}><IconRoundGridView class="w-8 h-8" /></button
 			>
 		</div>

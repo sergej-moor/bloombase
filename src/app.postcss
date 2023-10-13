@@ -40,6 +40,11 @@ body {
 	--theme-font-family-heading: 'Philosopher', serif;
 }
 
+:root {
+	--slider-bg: theme('colors.black');
+	--slider-knob: theme('colors.primary');
+}
+
 input[type='range'] {
 	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
 	width: 100%; /* Specific width is required for Firefox. */
@@ -70,7 +75,7 @@ input[type='range']::-webkit-slider-thumb {
 	height: 24px;
 	width: 16px;
 	border-radius: 2px;
-	background: black;
+	background: var(--slider-knob);
 	cursor: pointer;
 	margin-top: -8px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
 }
@@ -81,7 +86,7 @@ input[type='range']::-moz-range-thumb {
 	height: 24px;
 	width: 16px;
 	border-radius: 3px;
-	background: #ffffff;
+	background: var(--slider-bg);
 	cursor: pointer;
 }
 
@@ -91,7 +96,7 @@ input[type='range']::-ms-thumb {
 	height: 24px;
 	width: 16px;
 	border-radius: 3px;
-	background: #ffffff;
+	background: var(--slider-bg);
 	cursor: pointer;
 }
 
@@ -100,11 +105,11 @@ input[type='range']::-webkit-slider-runnable-track {
 	height: 8.4px;
 	cursor: pointer;
 
-	background: rgb(250, 204, 21);
+	background: var(--slider-bg);
 }
 
 input[type='range']:focus::-webkit-slider-runnable-track {
-	background: #367ebd;
+	background: var(--slider-bg);
 }
 
 input[type='range']::-moz-range-track {
@@ -133,7 +138,7 @@ input[type='range']::-ms-fill-upper {
 	background: #3071a9;
 }
 input[type='range']:focus::-ms-fill-upper {
-	background: #367ebd;
+	background: var(--slider-bg);
 }
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */

@@ -10,12 +10,12 @@
 		rounded: 'rounded-lg'
 	};
 
-	/* drawerStore.open(drawerSettings); */
+	//drawerStore.open(drawerSettings);
 </script>
 
 <div>
 	<button
-		class="bg-secondary btn border-black border rounded-lg flex w-44"
+		class="bg-primary btn border-black border rounded-lg flex w-44"
 		on:click={() => drawerStore.open(drawerSettings)}
 	>
 		<IconBaselineFilterAlt />

@@ -1,8 +1,9 @@
 <script lang="ts">
 	// your script goes here
 	import { goto } from '$app/navigation';
-	import { questionIndexStore, nextQuestion } from '../stores/questionIndexStore';
+	import { questionIndexStore, nextQuestion } from '../../stores/questionIndexStore';
 	import { page } from '$app/stores';
+	import type { Question } from '../../app';
 	export let question: Question = {
 		title: '',
 		type: '',
