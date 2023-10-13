@@ -15,9 +15,9 @@ export const load = async ({ locals: { supabase, getSession } }) => {
 		.eq('user_id', session.user.id);
 
 	const plantsData = likedPlants.data?.map((plant) => {
+		plant.houseplants.likes = [1];
 		return plant.houseplants;
 	});
-	
 
 	/* const { data } = await supabaseClient
 		.from('likes')

@@ -1,30 +1,15 @@
 <script lang="ts">
-	import SmallCard from '../../components/SmallCard.svelte';
+	import SmallCard from '../explore/SmallCard.svelte';
 	import BigCard from '../explore/BigCard.svelte';
 	import type { Plant, PlantCard } from '../../app';
+	import { convertResToPlantCards } from '../../helpers/convert';
 
 	export let data;
 
 	let { supabase, session, plants } = data;
 	$: ({ supabase, session, plants } = data);
 
-	const plantCards = data.plants.map((plant) => {
-		const plantObj: PlantCard = {
-			id: plant.id,
-			latin: plant.latin,
-			name: plant.common.split(',')[0],
-			category: plant.category,
-
-			use: plant.use.split(','),
-			cover_img: plant.cover_img,
-			light_level: plant.light_level,
-			watering_frequency: plant.watering_frequency,
-			pet_friendly: true,
-			experience: 0
-		};
-		return plantObj;
-	});
-
+	const plantCards = convertResToPlantCards(data.plants);
 	/* export let plants: Array<Plant>; */
 
 	let activeView = 1;
