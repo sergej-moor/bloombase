@@ -25,7 +25,8 @@
 			light_level: plant.light_level,
 			watering_frequency: plant.watering_frequency,
 			pet_friendly: true,
-			experience: 0
+			experience: 0,
+			liked: plant.likes.length != 0
 		};
 		return plantObj;
 	});
@@ -83,12 +84,11 @@
 		light_level: 2,
 		pet_friendly: true
 	};
-	
 </script>
 
 <div>
 	<h2 class="text-6xl h2 font-bold my-2 mb-8 leading-[0.9]">Discover <br /> plants</h2>
-	
+
 	<div class="flex justify-between mb-4">
 		<!-- <input type="search" disabled class="rounded-lg border border-black" placeholder="Monstera" /> -->
 		<!-- <button class="btn variant-filled">Filters</button> -->
@@ -150,5 +150,3 @@
 		</section>
 	{/if}
 </div>
-
-

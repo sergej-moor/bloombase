@@ -11,48 +11,27 @@
 
 	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
 
-	let liked = false;
-	async function isLiked() {
-		let res = await supabase
-			.from('likes')
-			.select()
-			.eq('user_id', session.user.id)
-			.eq('plant_id', plant.id);
 
-		if (!res.data) return false;
-		liked = res.data.length > 0;
-		return res;
-	}
 
 	async function toggleLike() {
-		/* 		
-		console.log();
-		console.log(plant.id); */
-		let res = await isLiked();
 
-		if (!res.data) return false;
-		if (res.data.length == 0) {
-			//like
-			let res = await supabase
-				.from('likes')
-				.insert({ user_id: session.user.id, plant_id: plant.id });
 
-			liked = true;
-		} else {
+		if (plant.liked) {
 			//unlike
+
 			const { error } = await supabase
 				.from('likes')
 				.delete()
 				.eq('user_id', session.user.id)
 				.eq('plant_id', plant.id);
+		} else {
+			//like
 
-			liked = false;
+			let res = await supabase
+				.from('likes')
+				.insert({ user_id: session.user.id, plant_id: plant.id });
 		}
-		/* 
-		guck in supabase, ob der eintrag geliked ist
-		wenn nein, dann füge einen eintrag hinzu
-		wenn ja, dann entferne den eintrag aus supabase
-		*/
+		plant.liked = !plant.liked;
 	}
 </script>
 
@@ -83,15 +62,14 @@
 	{#if session}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		{#await isLiked() then like}
-			<!-- promise was fulfilled -->
-			<div on:click={() => toggleLike()} class="m-2 absolute top-0 right-0">
-				<IconBaselineFavorite
-					class={liked
-						? 'text-secondary h-8 w-8 border-2 border-black bg-black'
-						: 'text-white h-8 w-8 border-2 border-black bg-black'}
-				/>
-			</div>
-		{/await}
+
+		<!-- promise was fulfilled -->
+		<div on:click={() => toggleLike()} class="m-2 absolute top-0 right-0">
+			<IconBaselineFavorite
+				class={plant.liked
+					? 'text-secondary h-8 w-8 border-2 border-black bg-black'
+					: 'text-white h-8 w-8 border-2 border-black bg-black'}
+			/>
+		</div>
 	{/if}
 </div>

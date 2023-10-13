@@ -44,6 +44,7 @@ interface PlantCard {
 	pet_friendly: boolean;
 	experience: number;
 	use: Array<string>;
+	liked: boolean;
 }
 
 interface Plant {
