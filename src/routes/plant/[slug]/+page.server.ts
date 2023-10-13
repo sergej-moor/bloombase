@@ -1,4 +1,5 @@
 import { supabaseClient } from '$lib/supabaseClient';
+import type { Plant } from '../../../app';
 
 export const load = async ({ params, locals: { supabase, getSession } }) => {
 	const session = await getSession();

@@ -44,13 +44,17 @@ export const load = async ({ url, locals: { supabase, getSession } }) => {
 		const { data } = await supabaseClient
 			.from('houseplants')
 			.select(`*,likes(plant_id)`)
-			.eq('likes.user_id', session.user.id)
-			.limit(10);
+			.eq('likes.user_id', session.user.id);
+
 		datas = data;
-		//console.log(datas);
+
 		//console.log(datas);
 	} else {
-		const { data } = await supabaseClient.from('houseplants').select().limit(20);
+		const { data } = await supabaseClient
+			.from('houseplants')
+			.select(`*,likes(plant_id)`)
+			.eq('likes.user_id', '123');
+
 		datas = data;
 	}
 

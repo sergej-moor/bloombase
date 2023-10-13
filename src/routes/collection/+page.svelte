@@ -16,6 +16,9 @@
 </script>
 
 <div>
+	<!-- 	<form method="POST">
+		<button class="btn">Upload</button>
+	</form> -->
 	<h2 class="h2 text-6xl">Your Collection</h2>
 	<section class="card-container">
 		{#if activeView == 1}
