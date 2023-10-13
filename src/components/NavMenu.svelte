@@ -5,13 +5,13 @@
 	const drawerStore = getDrawerStore();
 
 	const links = [
-		{ name: 'Plant Finder 🔎', url: '/wizard' },
-		{ name: 'Explore 🪴', url: '/explore' }
+		{ name: '🔎 Plant Survey', url: '/wizard' },
+		{ name: '🪴 Explore ', url: '/explore' }
 	];
 
 	const userLinks = [
-		{ name: 'My Collection', url: '/collection' },
-		{ name: 'My Profile', url: '/profile' }
+		{ name: '📦 My Collection ', url: '/collection' },
+		{ name: '👤 My Profile ', url: '/profile' }
 	];
 
 	const linksBottom = [
@@ -54,17 +54,17 @@
 	};
 </script>
 
-<div class="flex flex-col justify-between h-full bg-primary">
+<div class="flex flex-col justify-between h-full bg-bg">
 	<div>
-		<div class="flex justify-between items-start border-b-2 border-black p-4 bg-primary">
-			<button on:click={() => navigate('/')} class="text-2xl h2">BloomBase</button>
-			<div />
+		<div class="flex items-center border-b-2 border-black p-4 pl-2 gap-x-2 bg-primary h-[50px]">
 			<button on:click={() => drawerStore.close()}><IconBaselineClose class="w-8 h-8 " /></button>
+			<button on:click={() => navigate('/')} class="text-2xl h2">bloombase</button>
+			<div />
 		</div>
 
 		<ul class="flex flex-col text-xl font-semibold px-4">
 			{#each links as link}
-				<li class="border-b-2 py-4 -mx-4 px-4 leading-loose border-black bg-bg">
+				<li class="border-b-2 py-2 -mx-4 px-4 mt-4 leading-loose border-black text-lg">
 					<button on:click={() => navigate(link.url)}>{link.name}</button>
 				</li>
 			{/each}
@@ -72,14 +72,14 @@
 			{#if data.session}
 				<!-- content here -->
 				{#each userLinks as link}
-					<li class="border-b-2 py-4 -mx-4 px-4 leading-loose border-black bg-bg">
+					<li class="border-b-2 py-2 -mx-4 px-4 mt-4 leading-loose border-black text-lg">
 						<button on:click={() => navigate(link.url)}>{link.name}</button>
 					</li>
 				{/each}
 			{/if}
 		</ul>
 	</div>
-	<div class="flex justify-between p-4">
+	<div class="flex justify-between p-4 border-t-2 border-black">
 		<ul class="flex gap-x-4">
 			{#each linksBottom as link}
 				<li>

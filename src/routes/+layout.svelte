@@ -73,12 +73,17 @@
 <AppShell>
 	<svelte:fragment slot="header">
 		<AppBar background="bg-primary" padding={'p-2'} border={'border-black border-b-2'}>
-			<svelte:fragment slot="lead"><div><NavigationButton /></div></svelte:fragment>
+			<svelte:fragment slot="lead"
+				><div class="flex gap-x-2 items-center">
+					<NavigationButton />
+					<h1 class="h1 text-2xl">bloombase</h1>
+				</div></svelte:fragment
+			>
 
 			<svelte:fragment slot="trail">
 				<div class="">
 					<!-- <img src="logo_small.png" class="w-full h-full mb-1" alt="" /> -->
-					<a href="/"> <IconBaselineSpa class="w-8 h-8  text-black" /></a>
+					<a href="/"> <!-- <IconBaselineSpa class="w-8 h-8  text-black" /> --></a>
 				</div>
 			</svelte:fragment>
 		</AppBar>
