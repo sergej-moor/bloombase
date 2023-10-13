@@ -3,6 +3,7 @@
 	import slugify from '@sindresorhus/slugify';
 	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 	import type { PlantCard } from '../../app';
+	import LikeButton from '../../components/LikeButton.svelte';
 	export let plant: PlantCard;
 
 	const link = `/plant/${plant.id}-${slugify(plant.name)}`;
@@ -55,16 +56,6 @@
 		</div>
 	</a>
 	{#if session}
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-
-		<!-- promise was fulfilled -->
-		<div on:click={() => toggleLike()} class="m-2 absolute top-0 right-0">
-			<IconBaselineFavorite
-				class={plant.liked
-					? 'text-secondary h-8 w-8 border-2 border-black bg-black'
-					: 'text-white h-8 w-8 border-2 border-black bg-black'}
-			/>
-		</div>
+		<LikeButton liked={plant.liked} on:toggleLike={toggleLike} />
 	{/if}
 </div>

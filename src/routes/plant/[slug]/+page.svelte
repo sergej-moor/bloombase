@@ -1,6 +1,7 @@
 <script lang="ts">
 	import IconSharpArrowBack from '~icons/ic/sharp-arrow-back';
 	import IconBaselineFavorite from '~icons/ic/baseline-favorite';
+	import LikeButton from '../../../components/LikeButton.svelte';
 	export let data;
 	let liked = false;
 	let { session, supabase } = data;
@@ -84,13 +85,7 @@
 						<!-- svelte-ignore a11y-no-static-element-interactions -->
 						{#await isLiked() then like}
 							<!-- promise was fulfilled -->
-							<div on:click={() => toggleLike()} class="m-2 top-0 absolute right-0">
-								<IconBaselineFavorite
-									class={liked
-										? 'text-secondary h-8 w-8 border-2 border-black bg-black'
-										: 'text-white h-8 w-8 border-2 border-black bg-black'}
-								/>
-							</div>
+							<LikeButton {liked} on:toggleLike={toggleLike} />
 						{/await}
 					{/if}
 				</header>
