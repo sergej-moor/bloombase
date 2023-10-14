@@ -5,6 +5,17 @@
 	import Avatar from './Avatar.svelte';
 	export let data;
 	export let form;
+	import { Toast, getToastStore } from '@skeletonlabs/skeleton';
+	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
+	const toast: ToastSettings = {
+		message: 'Updated successfully',
+		// Provide any utility or variant background style:
+		background: 'bg-primary',
+		hideDismiss: true,
+		classes: 'rounded-2xl border-black border-2 border-b-4 border-r-4 font-bold text-bg',
+		timeout: 1000
+	};
+	const toastStore = getToastStore();
 
 	let { session, supabase, profile } = data;
 	$: ({ session, supabase, profile } = data);
@@ -20,6 +31,7 @@
 		loading = true;
 		return async () => {
 			loading = false;
+			toastStore.trigger(toast);
 		};
 	};
 
@@ -34,8 +46,9 @@
 
 <div>
 	<div class="my-8 flex flex-col justify-between gap-y-4">
+		<h2 class="text-4xl font-bold mb-2">Your Profile</h2>
 		<div class="">
-			<div class="p-4 flex flex-col">
+			<div class="p-4 flex flex-col cardbox">
 				<form
 					class="form-widget flex flex-col gap-y-4"
 					method="post"
@@ -87,7 +100,7 @@
 					<div>
 						<input
 							type="submit"
-							class="button block primary bg-secondary p-2 border-black border-2 border-r-4 border-b-4 rounded-lg w-full"
+							class="button block primary bg-primary text-bg font-semibold p-2 border-black border-2 border-r-4 border-b-4 rounded-lg w-full"
 							value={loading ? 'Loading...' : 'Update Profile'}
 							disabled={loading}
 						/>
@@ -97,10 +110,11 @@
 		</div>
 
 		<div
-			class="flex flex-col bg-secondary p-4 border-black border-2 border-r-4 border-b-4 rounded-lg"
+			class="flex flex-col bg-primary text-bg font-semibold p-4 border-black border-2 border-r-4 border-b-4 rounded-lg"
 		>
 			<!-- 	<h2>My Collection</h2> -->
-			<a class="text-xl font-bold text-center block" href="/collection">Go to my collection -></a>
+			<a class="text-xl font-bold text-center block" href="/collection">📦 Go to my collection 📦</a
+			>
 		</div>
 
 		<form method="post" action="?/signout" use:enhance={handleSignOut}>

@@ -25,7 +25,11 @@
 				<div>Discover <br /> plants</div>
 				you'll<br /> love
 			</h1>
-
+			<img
+				src="/images/home/home4.png"
+				class="hidden iphonexr:visible absolute left-0 right-0 top-0 bottom-0 m-auto object-contain animate-[spin_10s_ease-in-out_infinite_reverse]"
+				alt=""
+			/>
 			<img
 				src="/images/home/home2.png"
 				alt=""
@@ -72,28 +76,30 @@
 		</section>
 
 		<section id="explore" class="relative h-screen">
-			<div class="duotone absolute border-black border-t-2 h-full w-screen -mx-8" />
-
+			<div class="duotone absolute h-full w-screen -mx-8" />
+			<div class="absolute h-full w-screen -mx-8 bg-bg/40 border-black border-t-2" />
 			<div class=" flex flex-col gap-y-8 mt-16 absolute">
-				<h2 class="font-bold text-4xl leading-[0.9]">
-					Elevate Your
-					<br />Indoor Space
-				</h2>
-				<p class="text-sm font-semibold">
-					Plants not only add natural beauty but also improve air quality, reduce stress, and boost
-					overall well-being.
-					<br /><br />
-					With their calming presence and vibrant colors, they effortlessly elevate any space, making
-					it cozier and more inviting.
-					<br /><br />
-					With Bloombase, you can discover over 150 different species.
-				</p>
+				<div class="">
+					<h2 class="font-bold text-4xl leading-[0.9]">
+						Elevate Your
+						<br />Indoor Space
+					</h2>
+					<p class="text-sm font-semibold">
+						Plants not only add natural beauty but also improve air quality, reduce stress, and
+						boost overall well-being.
+						<br /><br />
+						With their calming presence and vibrant colors, they effortlessly elevate any space, making
+						it cozier and more inviting.
+						<br /><br />
+						With Bloombase, you can discover over 150 different species.
+					</p>
 
-				<a
-					href="/wizard"
-					class="text-sm font-bold text-secondary underline flex items-center gap-x-4"
-					>Explore the plant catalogue <IconRoundArrowRightAlt class="mt-1" /></a
-				>
+					<a
+						href="/explore"
+						class="text-sm font-bold text-secondary underline flex items-center gap-x-4 mt-8"
+						>Explore the plant catalogue <IconRoundArrowRightAlt class="mt-1" /></a
+					>
+				</div>
 			</div>
 
 			<!-- <img class="scale-150 translate-y-20" src="/images/home/bottomimg.png" alt="" /> -->

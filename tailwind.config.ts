@@ -18,6 +18,9 @@ export default {
 				secondary: '#E85294',
 				bgsecondary: '#0b4d28',
 				error: '#9F0000'
+			},
+			screens: {
+				iphonexr: { raw: '(min-height: 800px),(min-width:300px)' }
 			}
 		}
 	},
