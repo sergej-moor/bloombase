@@ -1,6 +1,8 @@
-<div class="bg-black text-bg px-8 py-4 flex flex-col gap-y-1 border-black border-t-2 -mx-8">
+<div
+	class="bg-black text-bg px-8 py-4 flex flex-col gap-y-1 border-black border-t-2 -mx-8 md:w-screen"
+>
 	<h2 class="h2 text-4xl mt-2">bloombase</h2>
-	<div class="flex justify-between font-semibold leading-loose">
+	<div class="flex justify-between font-semibold leading-loose md:w-1/4">
 		<ul>
 			<li><a href="/explore">Explore</a></li>
 			<li><a href="/wizard">Plant Survey</a></li>

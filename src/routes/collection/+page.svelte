@@ -23,7 +23,7 @@
 	<section class="card-container my-4">
 		{#if activeView == 1}
 			<!-- content here -->
-			<ul class="grid grid-cols-2 gap-x-2 gap-y-4">
+			<ul class="grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-4 xl:grid-cols-6">
 				{#each plantCards as plant}
 					<li><SmallCard {plant} {supabase} {session} /></li>
 				{/each}

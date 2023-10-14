@@ -59,14 +59,16 @@
 	let loadResults: boolean = false;
 </script>
 
-<div class=" h-full flex flex-col justify-between">
-	{#if currentQuestionIndex <= lastQuestionIndex}
-		<div class="mt-8" />
-		<div class="mb-20">
-			<ProgressBar maxValue={lastQuestionIndex + 1} value={currentQuestionIndex} />
-		</div>
-		<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
-	{:else}
-		<LoadResults />
-	{/if}
+<div class=" h-full flex flex-col justify-between items-center">
+	<div class="lg:max-w-lg">
+		{#if currentQuestionIndex <= lastQuestionIndex}
+			<div class="mt-8" />
+			<div class="mb-20">
+				<ProgressBar maxValue={lastQuestionIndex + 1} value={currentQuestionIndex} />
+			</div>
+			<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
+		{:else}
+			<LoadResults />
+		{/if}
+	</div>
 </div>

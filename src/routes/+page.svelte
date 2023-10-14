@@ -5,57 +5,73 @@
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
-		const tween = KUTE.fromTo(
+		/* 		const tween = KUTE.fromTo(
 			'#blob1',
 			{ path: '#blob1' },
 			{ path: '#blob2' },
 			{ repeat: 999, duration: 3000, yoyo: true }
 		);
 
-		tween.start();
+		tween.start(); */
+		/* 		const p = document.getElementById('parallax-2');
+		const section = document.getElementById('survey');
+		const page = document.getElementById('page');
+		//console.log(p);
+		if (p && page)
+			page.addEventListener('scroll', (e) => {
+				let offset = e.target.scrollHeight - e.target.clientHeight - e.target.scrollTop;
+				p.style.transform = `translateY(-${parseInt(offset / 50)}px)`;
+				console.log(parseInt(offset / 50));
+			}); */
+		//section.addEventListener('scroll', ()
 	});
 </script>
 
-<div class="flex justify-center h-full">
-	<div class="flex flex-col min-w-full md:min-w-[750px] relative">
-		<section id="hero" class="relative h-screen bg-primary -mx-8 -mt-8">
+<div class=" h-full">
+	<div class="flex flex-col relative">
+		<section
+			id="hero"
+			class="relative h-screen bg-primary -mx-8 -mt-8 border-black border-bottom-2"
+		>
 			<h1
-				class="font-black text-[5rem] translate-y-16 absolute z-20 leading-[1] text-center w-full text-bg"
+				class="font-black text-[5rem] translate-y-16 absolute z-20 leading-[1] text-center w-full text-bg lg:mt-12 lg:text-8xl"
 			>
 				<div>Discover <br /> plants</div>
 				you'll<br /> love
 			</h1>
 			<img
 				src="/images/home/home4.png"
-				class="hidden iphonexr:visible absolute left-0 right-0 top-0 bottom-0 m-auto object-contain animate-[spin_10s_ease-in-out_infinite_reverse]"
+				class="invisible xl:visible absolute left-0 right-0 top-0 bottom-0 m-auto object-contain animate-[spin_10s_ease-in-out_infinite_alternate-reverse]"
 				alt=""
 			/>
 			<img
 				src="/images/home/home2.png"
 				alt=""
-				class="absolute -left-1/4 top-0 bottom-0 my-auto object-contain animate-[spin_10s_ease-in-out_infinite]"
+				class="absolute -left-1/4 top-0 bottom-0 my-auto object-contain animate-[spin_10s_ease-in-out_infinite_alternate] md:left-0"
 			/>
 			<img
 				src="/images/home/home1.png"
 				alt=""
-				class="absolute -right-1/3 object-contain animate-[spin_20s_linear_infinite_reverse]"
+				class="absolute -right-1/3 object-contain animate-[spin_20s_linear_infinite_reverse] md:-right-1/4 xl:invisible"
 			/>
 
 			<img
 				src="/images/home/home3.png"
 				alt=""
-				class="absolute -bottom-1/4 -right-1/4 object-contain animate-[spin_15s_linear_infinite] z-10"
+				class="absolute -bottom-1/4 -right-1/4 object-contain animate-[spin_15s_linear_infinite] z-10 md:-bottom-1/3 md:-right-1"
 			/>
-			<button
-				class="cardbox p-2 font-bold px-8 bg-secondary text-white absolute bottom-40 left-0 right-0 z-20 mx-12"
-				>Get started now</button
-			>
+			<div class="bg-red-500 w-screen flex justify-center">
+				<button
+					class="cardbox p-2 font-bold px-8 bg-secondary text-white absolute bottom-40 left-0 right-0 z-20 mx-12 md:max-w-[500px] md:mx-auto"
+					>Get started now</button
+				>
+			</div>
 		</section>
 
-		<section id="survey" class="relative h-screen py-8 parallax">
+		<section id="survey" class="relative h-screen py-8 -mx-8 parallax">
 			<div class="flex flex-col gap-y-8 mt-16 w-4/5 mx-8">
-				<h2 class="font-bold text-4xl leading-[0.9]">Find you <br /> perfect match</h2>
-				<p class="text-sm font-semibold">
+				<h2 class="font-bold text-4xl leading-[0.9] lg:text-6xl">Find your <br /> perfect match</h2>
+				<p class="text-sm font-semibold lg:text-xl lg:my-16 lg:max-w-lg">
 					Discover the ideal green companions that will thrive in your space and bring nature's
 					beauty indoors.
 					<br /><br />
@@ -64,27 +80,28 @@
 
 				<a
 					href="/wizard"
-					class="text-sm font-bold underline text-secondary flex items-center gap-x-4"
+					class="text-sm font-bold underline text-secondary flex items-center gap-x-4 lg:text-xl"
 					>Take the plant survey <IconRoundArrowRightAlt class="mt-1 " /></a
 				>
 			</div>
-			<img
+			<img src="/images/home/rank.png" alt="" class="" id="parallax-2" />
+			<!-- 			<img
 				src="/images/home/womancloseduotone2.png"
-				class="absolute bottom-0 max-w-screen-2xl w-screen"
+				class="absolute bottom-0 max-w-screen-2xl w-screen md:invisible"
 				alt=""
-			/>
+			/> -->
 		</section>
 
 		<section id="explore" class="relative h-screen">
 			<div class="duotone absolute h-full w-screen -mx-8" />
 			<div class="absolute h-full w-screen -mx-8 bg-bg/40 border-black border-t-2" />
 			<div class=" flex flex-col gap-y-8 mt-16 absolute">
+				<h2 class="font-bold text-4xl lg:text-6xl leading-[0.9]">
+					Elevate Your
+					<br />Indoor Space
+				</h2>
 				<div class="">
-					<h2 class="font-bold text-4xl leading-[0.9]">
-						Elevate Your
-						<br />Indoor Space
-					</h2>
-					<p class="text-sm font-semibold">
+					<p class="text-sm font-semibold lg:text-xl lg:my-16 lg:max-w-lg">
 						Plants not only add natural beauty but also improve air quality, reduce stress, and
 						boost overall well-being.
 						<br /><br />
@@ -96,7 +113,7 @@
 
 					<a
 						href="/explore"
-						class="text-sm font-bold text-secondary underline flex items-center gap-x-4 mt-8"
+						class="text-sm font-bold text-secondary underline flex items-center gap-x-4 mt-8 lg:text-xl"
 						>Explore the plant catalogue <IconRoundArrowRightAlt class="mt-1" /></a
 					>
 				</div>
@@ -143,9 +160,23 @@
 
 	.parallax {
 		/* The image used */
-		background-image: url('/images/home/climbingplant.png');
+		background-image: url('/images/home/rankonstick.png');
 
-		margin: 0 -2rem;
+		/* position: absolute;
+		/* Set a specific height */
+		/* min-height: 100vh; */
+
+		/* Create the parallax scrolling effect */
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+
+	.parallax-2 {
+		/* The image used */
+		background-image: url('/images/home/rankonstick.png');
+
 		/* position: absolute;
 		/* Set a specific height */
 		/* min-height: 100vh; */

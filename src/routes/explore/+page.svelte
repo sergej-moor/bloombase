@@ -110,14 +110,14 @@
 		<section class="card-container">
 			{#if activeView == 1}
 				<!-- content here -->
-				<ul class="grid grid-cols-2 gap-x-2 gap-y-4">
+				<ul class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-2 gap-y-4">
 					{#each plantsFiltered as plant}
 						<li><SmallCard {plant} {supabase} {session} /></li>
 					{/each}
 				</ul>
 			{:else}
 				<!-- else content here -->
-				<ul class="">
+				<ul class="grid grid- grid-cols-1 md:grid-cols-2 md:gap-4 xl:grid-cols-4 xl:gap-8">
 					{#each renderedPlants as plant}
 						<li><BigCard {plant} {supabase} {session} /></li>
 					{/each}

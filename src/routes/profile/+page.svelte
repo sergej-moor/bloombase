@@ -45,7 +45,7 @@
 </script>
 
 <div>
-	<div class="my-8 flex flex-col justify-between gap-y-4">
+	<div class="my-8 flex flex-col justify-between gap-y-4 md:max-w-[700px]">
 		<h2 class="text-4xl font-bold mb-2">Your Profile</h2>
 		<div class="">
 			<div class="p-4 flex flex-col cardbox">
@@ -56,14 +56,16 @@
 					use:enhance={handleSubmit}
 					bind:this={profileForm}
 				>
-					<Avatar
-						{supabase}
-						bind:url={avatarUrl}
-						size={10}
-						on:upload={() => {
-							profileForm.requestSubmit();
-						}}
-					/>
+					<div class="flex justify-center">
+						<Avatar
+							{supabase}
+							bind:url={avatarUrl}
+							size={10}
+							on:upload={() => {
+								profileForm.requestSubmit();
+							}}
+						/>
+					</div>
 					<div>
 						<label for="email">Email</label>
 						<input

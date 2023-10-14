@@ -30,7 +30,7 @@
 		>
 	</div>
 
-	<form class="flex flex-col j gap-4">
+	<form class="flex flex-col j gap-4 md:max-w-md">
 		<!-- 		<h2 class="font-bold">Categories</h2>
 		<ListBox multiple class="text-sm font-semibold" active="bg-primary" rounded="rounded-lg">
 			<ListBoxItem

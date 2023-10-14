@@ -32,7 +32,7 @@
 	}
 </script>
 
-<div class="flex flex-col justify-between h-full my-4">
+<div class="flex flex-col justify-between h-full my-4 ">
 	<div class="flex flex-col justify-between h-full">
 		<div>
 			<p class="text-sm font-bold">Question {index + 1}</p>
