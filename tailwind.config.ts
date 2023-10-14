@@ -15,7 +15,7 @@ export default {
 			colors: {
 				bg: '#fefcf0',
 				primary: '#009F69',
-				secondary: '#ffa6fb',
+				secondary: '#E85294',
 				bgsecondary: '#0b4d28',
 				error: '#9F0000'
 			}

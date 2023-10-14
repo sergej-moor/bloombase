@@ -72,7 +72,7 @@
 </Drawer>
 <AppShell>
 	<svelte:fragment slot="header">
-		<AppBar background="bg-primary" padding={'p-2'} border={'border-black border-b-2'}>
+		<AppBar background="bg-bg" padding={'p-2'} border={'border-black border-b-2'}>
 			<svelte:fragment slot="lead"
 				><div class="flex gap-x-2 items-center">
 					<NavigationButton />
@@ -89,13 +89,13 @@
 		</AppBar>
 	</svelte:fragment>
 	<div class="flex justify-center h-full px-8 bg-bg">
-		<div class="flex flex-col gap-4 min-w-full md:min-w-[750px]">
+		<div class="flex flex-col min-w-full md:min-w-[750px]">
 			<div class="h-full">
 				<slot><!-- optional fallback --></slot>
 			</div>
+			<Footer />
 		</div>
 	</div>
-	<Footer />
 </AppShell>
 
 <style>

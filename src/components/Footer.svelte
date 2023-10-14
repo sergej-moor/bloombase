@@ -1,6 +1,6 @@
-<div class="bg-bgsecondary text-white px-8 py-4 flex flex-col gap-y-4">
-	<h2 class="h2 text-4xl mt-4">bloombase</h2>
-	<div class="flex justify-between">
+<div class="bg-black text-bg px-8 py-4 flex flex-col gap-y-1 border-black border-t-2 -mx-8">
+	<h2 class="h2 text-4xl mt-2">bloombase</h2>
+	<div class="flex justify-between font-semibold leading-loose">
 		<ul>
 			<li><a href="/explore">Explore</a></li>
 			<li><a href="/wizard">Plant Survey</a></li>
@@ -13,5 +13,5 @@
 		</ul>
 	</div>
 
-	<div class="text-sm">© 2023 Bloombase</div>
+	<div class="text-sm mt-2">© 2023 bloombase</div>
 </div>
