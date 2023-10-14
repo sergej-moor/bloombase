@@ -5,13 +5,10 @@
 </script>
 
 <div>
-	<ul class="flex gap-x-4 justify-between w-full">
+	<ul class="flex gap-x-2 justify-between w-full">
 		{#each { length: maxValue } as _, i}
 			<div class="w-full">
-				<li
-					class="border border-black rounded-lg bg-white text-transparent"
-					class:bg-secondary={i <= value}
-				>
+				<li class="border-2 border-black rounded-lg text-transparent" class:bg-primary={i <= value}>
 					{i + 1}
 				</li>
 			</div>

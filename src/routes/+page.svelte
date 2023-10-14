@@ -60,8 +60,8 @@
 
 				<a
 					href="/wizard"
-					class="text-sm font-semibold underline text-primary flex items-center gap-x-4"
-					>Take the plant survey <IconRoundArrowRightAlt class="mt-1" /></a
+					class="text-sm font-bold underline text-secondary flex items-center gap-x-4"
+					>Take the plant survey <IconRoundArrowRightAlt class="mt-1 " /></a
 				>
 			</div>
 			<img
@@ -89,7 +89,9 @@
 					With Bloombase, you can discover over 150 different species.
 				</p>
 
-				<a href="/wizard" class="text-sm font-semibold underline flex items-center gap-x-4"
+				<a
+					href="/wizard"
+					class="text-sm font-bold text-secondary underline flex items-center gap-x-4"
 					>Explore the plant catalogue <IconRoundArrowRightAlt class="mt-1" /></a
 				>
 			</div>

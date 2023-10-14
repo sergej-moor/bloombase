@@ -49,7 +49,6 @@
 	const question = url.searchParams.get('question');
 	let currentQuestionIndex: number = 0;
 
-	
 	questionIndexStore.subscribe((value) => {
 		currentQuestionIndex = value;
 	});
@@ -60,12 +59,12 @@
 	let loadResults: boolean = false;
 </script>
 
-<div>
+<div class=" h-full flex flex-col justify-between">
 	{#if currentQuestionIndex <= lastQuestionIndex}
 		<div class="mt-8" />
-		<!-- <progress value={currentQuestionIndex + 1} max={lastQuestionIndex + 2} /> -->
-		<ProgressBar maxValue={lastQuestionIndex + 1} value={currentQuestionIndex} />
-		<div class="mt-16" />
+		<div class="mb-20">
+			<ProgressBar maxValue={lastQuestionIndex + 1} value={currentQuestionIndex} />
+		</div>
 		<QuestionCard question={questions[currentQuestionIndex]} index={currentQuestionIndex} />
 	{:else}
 		<LoadResults />

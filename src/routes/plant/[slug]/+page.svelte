@@ -2,6 +2,7 @@
 	import IconSharpArrowBack from '~icons/ic/sharp-arrow-back';
 	import IconBaselineFavorite from '~icons/ic/baseline-favorite';
 	import LikeButton from '../../../components/LikeButton.svelte';
+	import type { Plant } from '../../../app';
 	export let data;
 	let liked = false;
 	let { session, supabase } = data;
@@ -9,11 +10,14 @@
 
 	function getStats(plant: Plant) {
 		let stats = [];
-		stats.push({ name: 'Common Name(s)', value: plant.name.replace(',', ', ') });
+		let use = plant.use;
+		stats.push({ name: 'Common Name', value: plant.name.replace(',', ', ') });
+		stats.push({ name: 'Latin Name', value: plant.latin });
 		stats.push({ name: 'Family', value: plant.family });
 		stats.push({ name: 'Category', value: plant.category });
 		stats.push({ name: 'Origin', value: plant.origin });
-		stats.push({ name: 'Insects', value: plant.insects });
+		stats.push({ name: 'Insects', value: plant.insects.replace(',', ', ') });
+		stats.push({ name: 'Use', value: plant.use.join('<br>') });
 		return stats;
 	}
 
@@ -63,6 +67,8 @@
 			liked = false;
 		}
 	}
+
+	const googlelink = `http://www.google.com/search?q=${data.plant.latin} ${data.plant.name}`;
 </script>
 
 <div class="flex justify-center h-full">
@@ -94,14 +100,14 @@
 					<div class="text-3xl h2">{data.plant.name}</div>
 				</div>
 			</div>
-			<section class="my-4 bg-white border-black border-2 border-b-4 border-r-4 rounded-lg">
+			<!-- 			<section class="my-4 bg-white border-black border-2 border-b-4 border-r-4 rounded-lg">
 				<div class="text-xl font-semibold border-b border-black p-2">Description</div>
 				<p class="text-sm p-2">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus corporis quasi ex
 					deserunt. Dignissimos, non suscipit nihil sed molestias itaque doloremque, laborum quod
 					fugit placeat, rerum similique voluptas asperiores nulla?
 				</p>
-			</section>
+			</section> -->
 
 			<section class="my-4 bg-white border-black border-2 border-b-4 border-r-4 rounded-lg pb-2">
 				<div class="text-xl font-semibold border-b border-black p-2">Care Guide</div>
@@ -124,17 +130,25 @@
 				<div class="text-xl font-semibold border-b border-black p-2">Stats</div>
 				<div class="table-container">
 					<!-- Native Table Element -->
-					<table class="table table-compact table-hover">
+					<table class="table table-compact table-hover whitespace-pre-line">
 						<tbody>
 							{#each getStats(data.plant) as row, i}
 								<tr>
 									<td>{row.name}</td>
-									<td>{row.value}</td>
+									<td>{@html row.value}</td>
 								</tr>
 							{/each}
 						</tbody>
 					</table>
 				</div>
+			</section>
+
+			<section id="googleit">
+				<a
+					href={googlelink}
+					target="_blank"
+					class="block cardbox p-2 text-center bg-primary font-bold text-bg">Make a websearch</a
+				>
 			</section>
 		</div>
 	</div>

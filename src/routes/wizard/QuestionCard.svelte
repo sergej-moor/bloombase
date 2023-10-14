@@ -43,7 +43,7 @@
 					<button
 						on:click={() => answerQuestion(question.answerValues[index])}
 						type="button"
-						class="bg-white block rounded-lg border-black border border-b-4 p-2 text-center font-bold"
+						class=" block rounded-lg border-black border border-b-4 border-r-4 p-2 text-center font-bold"
 					>
 						{answer}
 					</button>

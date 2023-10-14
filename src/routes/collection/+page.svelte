@@ -15,12 +15,12 @@
 	let activeView = 1;
 </script>
 
-<div>
+<div class="my-4">
 	<!-- 	<form method="POST">
 		<button class="btn">Upload</button>
 	</form> -->
-	<h2 class="h2 text-6xl">Your Collection</h2>
-	<section class="card-container">
+	<h2 class="font-bold text-6xl">Your Collection</h2>
+	<section class="card-container my-4">
 		{#if activeView == 1}
 			<!-- content here -->
 			<ul class="grid grid-cols-2 gap-x-2 gap-y-4">

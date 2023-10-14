@@ -76,7 +76,7 @@
 			<svelte:fragment slot="lead"
 				><div class="flex gap-x-2 items-center">
 					<NavigationButton />
-					<h1 class="h1 text-2xl">bloombase</h1>
+					<a href="/" class="h1 text-2xl">bloombase</a>
 				</div></svelte:fragment
 			>
 
@@ -90,7 +90,7 @@
 	</svelte:fragment>
 	<div class="flex justify-center h-full px-8 bg-bg">
 		<div class="flex flex-col min-w-full md:min-w-[750px]">
-			<div class="h-full">
+			<div class="h-full min-h-screen">
 				<slot><!-- optional fallback --></slot>
 			</div>
 			<Footer />
