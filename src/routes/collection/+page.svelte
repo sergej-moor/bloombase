@@ -15,6 +15,10 @@
 	let activeView = 1;
 </script>
 
+<svelte:head>
+	<title>Your Collection - bloombase</title>
+	<meta name="description" content="Your collection of liked plants from your Bloombase-Account" />
+</svelte:head>
 <div class="my-4">
 	<!-- 	<form method="POST">
 		<button class="btn">Upload</button>

@@ -59,6 +59,10 @@
 	let loadResults: boolean = false;
 </script>
 
+<svelte:head>
+	<title>Plant Survey - bloombase</title>
+	<meta name="description" content="Find your ideal houseplant with the plant survey!" />
+</svelte:head>
 <div class=" h-full flex flex-col justify-between items-center">
 	<div class="lg:max-w-lg">
 		{#if currentQuestionIndex <= lastQuestionIndex}

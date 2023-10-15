@@ -44,6 +44,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Profile - bloombase</title>
+	<meta name="description" content="Your Profile of your Bloombase-Account" />
+</svelte:head>
 <div>
 	<div class="my-8 flex flex-col justify-between gap-y-4 md:max-w-[700px]">
 		<h2 class="text-4xl font-bold mb-2">Your Profile</h2>

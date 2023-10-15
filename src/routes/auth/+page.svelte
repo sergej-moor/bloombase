@@ -57,10 +57,12 @@
 			}
 		}
 	};
-
-
 </script>
 
+<svelte:head>
+	<title>Register - bloombase</title>
+	<meta name="description" content="Register for a Bloombase-Account" />
+</svelte:head>
 <div class="my-16">
 	<section class="sign-up font-semibold">
 		<h2 class="font-bold text-4xl my-4">Register</h2>

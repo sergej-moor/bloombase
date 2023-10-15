@@ -27,6 +27,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>bloombase</title>
+	<meta name="description" content="Homepage of Bloombase" />
+</svelte:head>
 <div class=" h-full">
 	<div class="flex flex-col relative">
 		<section

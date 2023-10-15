@@ -71,6 +71,13 @@
 	const googlelink = `http://www.google.com/search?q=${data.plant.latin} ${data.plant.name}`;
 </script>
 
+<svelte:head>
+	<title>{data.plant.name} - bloombase</title>
+	<meta
+		name="description"
+		content={`Details for the ${data.plant.name} plant, also known as ${data.plant.latin}`}
+	/>
+</svelte:head>
 <div class="flex justify-center h-full">
 	<div class="flex flex-col justify-between gap-4 min-w-full md:w-[750px] mb-8">
 		<div class="">

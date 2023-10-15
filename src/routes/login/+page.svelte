@@ -56,6 +56,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Login - bloombase</title>
+	<meta name="description" content="Log into your Bloombase-Account" />
+</svelte:head>
 <div class="my-16">
 	<section class="sign-up font-semibold">
 		<h2 class="font-bold text-4xl my-4">Login</h2>

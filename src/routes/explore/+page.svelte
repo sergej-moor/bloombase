@@ -71,6 +71,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Browse & Explore - bloombase</title>
+	<meta name="description" content="The plant catalogue with over 150 different houseplants." />
+</svelte:head>
 <div class="my-8">
 	<!-- <h2 class="text-6xl font-bold my-2 mb-8 leading-[0.9]">Discover <br /> plants</h2> -->
 

@@ -3,6 +3,10 @@
 	export let form;
 </script>
 
+<svelte:head>
+	<title>Contact - bloombase</title>
+	<meta name="description" content="Contact page for Bloombase" />
+</svelte:head>
 <div class="my-8">
 	<h2 class="text-6xl h1 pl-2">Contact</h2>
 	<p class="p-2 text-lg">

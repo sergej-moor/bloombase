@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>About - bloombase</title>
+	<meta name="description" content="About bloombase." />
+</svelte:head>
 <div class="my-8 font-semibold">
 	<h2 class="font-bold text-8xl">About</h2>
 
