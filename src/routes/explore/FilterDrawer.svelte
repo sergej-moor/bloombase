@@ -4,6 +4,7 @@
 	import { ListBox, ListBoxItem, getDrawerStore } from '@skeletonlabs/skeleton';
 	import { plantFilterStore, getFilter } from '../../stores/plantFilterStore';
 	import IconBaselineClose from '~icons/ic/baseline-close';
+	import { SlideToggle } from '@skeletonlabs/skeleton';
 	const drawerStore = getDrawerStore();
 
 	function updateUrl(urlQuery: string, value: number) {
@@ -76,10 +77,10 @@
 				<option value="schefflera">Schefflera</option>
 			</select>
 		</label> -->
-		<label for="">
+		<!-- 		<label for="">
 			<span class="font-bold text-lg">Experience needed</span>
 			<div class="flex mt-1">
-				<!-- 	<span class="w-16"> Easy</span> -->
+		
 				<input
 					type="range"
 					class="range mt-1"
@@ -87,9 +88,9 @@
 					on:input={() => updateUrl('experience', $plantFilterStore.experience)}
 					max="2"
 				/>
-				<!-- 		<span class="w-16 text-end">Hard</span> -->
+			
 			</div>
-		</label>
+		</label> -->
 		<label for="">
 			<span class="font-bold text-lg">Light needed</span>
 			<div class="flex">
@@ -118,5 +119,16 @@
 				<!-- 	<span class="w-16 text-end">Low</span> -->
 			</div>
 		</label>
+		<div class="flex flex-col">
+			<span class="font-bold text-lg">Pet friendly / Not chewable for pets</span>
+			<SlideToggle
+				background="bg-black"
+				active="bg-primary"
+				rounded="rounded-lg"
+				name="slider-label"
+				checked
+				bind:value={$plantFilterStore.pet_friendly}
+			/>
+		</div>
 	</form>
 </div>

@@ -79,15 +79,15 @@
 	/>
 </svelte:head>
 <div class="flex justify-center h-full">
-	<div class="flex flex-col justify-between gap-4 min-w-full md:w-[750px] mb-8">
-		<div class="">
+	<div class="flex justify-center gap-4 min-w-full mb-8">
+		<div class="md:w-[750px]">
 			<!-- svelte-ignore a11y-invalid-attribute -->
 			<a class="my-2 w-fit flex items-center" href="javascript:history.back()"
 				><IconSharpArrowBack class="mt-0.5" /> Go Back</a
 			>
 
-			<div class="bg-white border-black border-2 border-b-4 border-r-4 rounded-lg">
-				<header class="card-header h-80 p-0 relative">
+			<div class="bg-bg border-black border-2 border-b-4 border-r-4 rounded-lg">
+				<header class="card-header h-fit p-0 relative">
 					<img
 						src={data.plant.cover_img}
 						class="object-cover object-center h-full w-full rounded-lg rounded-b-none"
@@ -116,7 +116,7 @@
 				</p>
 			</section> -->
 
-			<section class="my-4 bg-white border-black border-2 border-b-4 border-r-4 rounded-lg pb-2">
+			<section class="my-4 bg-bg border-black border-2 border-b-4 border-r-4 rounded-lg pb-2">
 				<div class="text-xl font-semibold border-b border-black p-2">Care Guide</div>
 
 				<div class="p-2">
@@ -133,7 +133,7 @@
 				</div>
 			</section>
 
-			<section class="my-4 bg-white border-black border-2 border-b-4 border-r-4 rounded-lg">
+			<section class="my-4 bg-bg border-black border-2 border-b-4 border-r-4 rounded-lg">
 				<div class="text-xl font-semibold border-b border-black p-2">Stats</div>
 				<div class="table-container">
 					<!-- Native Table Element -->

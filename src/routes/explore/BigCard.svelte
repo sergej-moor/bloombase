@@ -31,9 +31,7 @@
 	}
 </script>
 
-<div
-	class="mb-8 border-2 border-b-4 border-r-4 bg-white border-black rounded-lg relative md:max-w-[500px]"
->
+<div class="mb-8 cardbox p-0 relative md:max-w-[500px]">
 	<a class="card bg-red-300" href={link}>
 		<div class="h-full w-full rounded-lg">
 			<header class="card-header h-64 md:h-80 p-0">

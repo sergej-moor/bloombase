@@ -65,9 +65,10 @@
 				class="absolute -bottom-1/4 -right-1/4 object-contain animate-[spin_15s_linear_infinite] z-10 md:-bottom-1/3 md:-right-1"
 			/>
 			<div class="bg-red-500 w-screen flex justify-center">
-				<button
-					class="cardbox p-2 font-bold px-8 bg-secondary text-white absolute bottom-40 left-0 right-0 z-20 mx-12 md:max-w-[500px] md:mx-auto"
-					>Get started now</button
+				<a
+					href="/auth?homescreen=true"
+					class="block text-center cardbox p-2 font-bold px-8 bg-secondary text-bg absolute bottom-40 left-0 right-0 z-20 mx-12 md:max-w-[500px] md:mx-auto"
+					>Get started now</a
 				>
 			</div>
 		</section>

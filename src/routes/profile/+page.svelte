@@ -126,7 +126,7 @@
 		<form method="post" action="?/signout" use:enhance={handleSignOut}>
 			<div>
 				<button
-					class="bg-white p-2 font-bold border-black border-2 border-r-4 border-b-4 rounded-lg w-full"
+					class="bg-bg p-2 font-bold border-black border-2 border-r-4 border-b-4 rounded-lg w-full"
 					disabled={loading}>Sign Out</button
 				>
 			</div>

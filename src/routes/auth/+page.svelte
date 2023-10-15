@@ -57,6 +57,10 @@
 			}
 		}
 	};
+
+	import { page } from '$app/stores';
+
+	const fromHomepage = $page.url.searchParams.get('homescreen');
 </script>
 
 <svelte:head>
@@ -65,7 +69,13 @@
 </svelte:head>
 <div class="my-16">
 	<section class="sign-up font-semibold">
-		<h2 class="font-bold text-4xl my-4">Register</h2>
+		{#if fromHomepage}
+			<!-- content here -->
+			<h2 class="font-bold text-4xl my-4">Sign up now!</h2>
+		{:else}
+			<h2 class="font-bold text-4xl my-4">Register</h2>
+		{/if}
+
 		<p class="text-xl">Save your favorite plants <br /> with a bloombase account</p>
 
 		<div class="flex flex-col gap-y-2 cardbox mb-8">
@@ -97,15 +107,17 @@
 				<!-- content here -->
 			{/if}
 
-			<!-- 	<a
-					class="bg-white block rounded-lg border-black border border-b-4 p-2 text-center font-bold"
-					href="#a">Sign up with Apple</a
-				> -->
+	
 		</div>
 		<div class="font-semibold">
 			<p>Already have an account?</p>
 			<a href="/login" class="underline text-secondary">Click here to login</a>
 		</div>
+		{#if fromHomepage}
+			<!-- content here -->
+			<a href="/wizard" class="underline block text-center py-4">Skip this for now</a>
+		{/if}
+		<div />
 		<!-- 	<a
 				class="bg-primary block rounded-lg border-black border border-b-4 p-2 text-center font-bold"
 				href="#a">Sign up with Google</a

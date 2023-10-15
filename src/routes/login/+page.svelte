@@ -90,10 +90,7 @@
 				</div>
 			</form>
 
-			<!-- 	<a
-					class="bg-white block rounded-lg border-black border border-b-4 p-2 text-center font-bold"
-					href="#a">Sign up with Apple</a
-				> -->
+	
 		</div>
 		<div class="font-semibold">
 			<p>No account yet?</p>

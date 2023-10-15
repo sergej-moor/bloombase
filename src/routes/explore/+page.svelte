@@ -78,12 +78,12 @@
 <div class="my-8">
 	<!-- <h2 class="text-6xl font-bold my-2 mb-8 leading-[0.9]">Discover <br /> plants</h2> -->
 
-	<div class="flex justify-between mb-4">
+	<div class="flex justify-between md:justify-start md:gap-x-8">
 		<!-- <input type="search" disabled class="rounded-lg border border-black" placeholder="Monstera" /> -->
 		<!-- <button class="btn variant-filled">Filters</button> -->
 		<FilterButton />
 
-		<div class="flex gap-x-1 mb-4">
+		<div class="flex gap-x-1 mb-2">
 			<button
 				class:bg-primary={activeView == 0}
 				class="bg-bg rounded-lg p-1 border border-black"
@@ -95,6 +95,10 @@
 				on:click={() => (activeView = 1)}><IconRoundGridView class="w-8 h-8" /></button
 			>
 		</div>
+	</div>
+
+	<div class="font-bold mb-2">
+		{plantsFiltered.length} results found
 	</div>
 
 	{#if data.filters == baseFilter}

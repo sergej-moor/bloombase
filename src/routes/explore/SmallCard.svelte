@@ -32,7 +32,7 @@
 </script>
 
 <div
-	class=" border-2 border-b-8 border-r-4 bg-white border-black rounded-lg w-full relative md:max-w-[300px]"
+	class=" border-2 border-b-8 border-r-4 bg-bg border-black rounded-lg w-full relative md:max-w-[300px]"
 >
 	<a class="card bg-red-300" href={link}>
 		<div class="h-full w-full rounded-lg">

@@ -72,7 +72,7 @@
 			<div
 				class="flex justify-center items-center avatar image rounded-full border-black border-2 border-b-4 border-r-4 h-64 w-64 bg-secondary"
 			>
-				<ProgressRadial stroke={50} meter="stroke-white" track="stroke-black" class="" />
+				<ProgressRadial stroke={50} meter="stroke-bg" track="stroke-black" class="" />
 			</div>
 		{:else if avatarUrl}
 			<img
