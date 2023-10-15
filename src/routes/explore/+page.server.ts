@@ -50,11 +50,7 @@ export const load = async ({ url, locals: { supabase, getSession } }) => {
 
 		//console.log(datas);
 	} else {
-		const { data } = await supabaseClient
-			.from('houseplants')
-			.select(`*,likes(plant_id)`)
-			.eq('likes.user_id', '123');
-
+		const { data } = await supabaseClient.from('houseplants').select(`*,likes(plant_id)`);
 		datas = data;
 	}
 
