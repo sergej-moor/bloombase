@@ -1,6 +1,28 @@
-<script>
+<script lang="ts">
 	/** @type {import('./$types').ActionData} */
 	export let form;
+
+	import { Toast, getToastStore } from '@skeletonlabs/skeleton';
+	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
+	const toast: ToastSettings = {
+		message: "Awesome! Confirm your email address by clicking on the link we've sent to you.",
+		// Provide any utility or variant background style:
+		background: 'bg-primary',
+		hideDismiss: true,
+		classes: 'rounded-2xl border-black border-2 border-b-4 border-r-4 font-bold text-bg',
+		timeout: 5000
+	};
+	const toastStore = getToastStore();
+
+	if (form?.success) {
+		toast.message = 'Successfully send message!';
+		toastStore.trigger(toast);
+	}
+
+	if (form?.error) {
+		toast.message = 'An error appeared. ' + form?.error;
+		toastStore.trigger(toast);
+	}
 </script>
 
 <svelte:head>
@@ -13,7 +35,7 @@
 		Do you have any questions or suggestions? Feel free to write an message below!
 	</p>
 	<form class="cardbox flex flex-col gap-y-1" action="?/send" method="post">
-		<h2 class="pl-2 text-lg font-bold text-center">Contact Form</h2>
+		<!-- 	<h2 class="pl-2 text-lg font-bold text-center">Contact Form</h2> -->
 		<!-- Replace with accesKey sent to your email -->
 
 		<!-- Required -->
@@ -51,17 +73,15 @@
 
 		<input type="submit" class="cardbox p-2 bg-primary" value="Submit" />
 	</form>
-	<p>Successfully send message!</p>
-	{#if form?.success}
-		<!-- this message is ephemeral; it exists because the page was rendered in
-		   response to a form submission. it will vanish if the user reloads -->
-		<p>Successfully send message!</p>
+
+	<!-- 	{#if form?.success}
+
+		   <p class="text-center">Successfully send message!</p>
 	{/if}
 
 	{#if form?.error}
-		<!-- this message is ephemeral; it exists because the page was rendered in
-       response to a form submission. it will vanish if the user reloads -->
+		
 		<p>An error appeared</p>
 		<p>{form?.error}</p>
-	{/if}
+	{/if} -->
 </div>

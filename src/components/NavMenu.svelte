@@ -33,9 +33,9 @@
 	const signOutToast: ToastSettings = {
 		message: 'Successfully signed out!',
 		// Provide any utility or variant background style:
-		background: 'bg-secondary',
+		background: 'bg-primary',
 		hideDismiss: true,
-		classes: 'border-black border-2 border-b-4 border-r-4 font-semibold',
+		classes: 'rounded-2xl border-black border-2 border-b-4 border-r-4 font-bold text-bg',
 
 		timeout: 3000
 	};

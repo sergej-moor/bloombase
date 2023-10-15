@@ -4,9 +4,9 @@
 	const toast: ToastSettings = {
 		message: "Awesome! Confirm your email address by clicking on the link we've sent to you.",
 		// Provide any utility or variant background style:
-		background: 'bg-secondary',
+		background: 'bg-primary',
 		hideDismiss: true,
-		classes: 'rounded-2xl border-black border-2 border-b-4 border-r-4 font-semibold',
+		classes: 'rounded-2xl border-black border-2 border-b-4 border-r-4 font-bold text-bg',
 		timeout: 8000
 	};
 	import { supabaseClient } from '$lib/supabaseClient';

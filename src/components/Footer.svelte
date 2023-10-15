@@ -1,5 +1,5 @@
 <div
-	class="bg-black text-bg px-8 py-4 flex flex-col gap-y-1 border-black border-t-2 -mx-8 md:w-screen z-50"
+	class="bg-black text-bg px-8 py-4 flex flex-col gap-y-1 border-black border-t-2 -mx-8 md:w-screen"
 >
 	<h2 class="h2 text-4xl mt-2">bloombase</h2>
 	<div class="flex justify-between font-semibold leading-loose md:w-1/4">

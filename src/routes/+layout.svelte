@@ -14,6 +14,8 @@
 	$: ({ supabase, session } = data);
 
 	onMount(() => {
+		//disableScrollHandling();
+		//
 		const {
 			data: { subscription }
 		} = supabase.auth.onAuthStateChange((event, _session) => {
@@ -58,6 +60,7 @@
 			});
 		});
 	});
+	import { disableScrollHandling } from '$app/navigation';
 </script>
 
 <div id="noisebg" />
