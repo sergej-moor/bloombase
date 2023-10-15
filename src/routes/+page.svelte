@@ -72,7 +72,7 @@
 			</div>
 		</section>
 
-		<section id="survey" class="relative h-screen py-8 -mx-8 parallax">
+		<section id="survey" class="relative h-screen py-8 -mx-8 parallax bg-contain md:bg-cover">
 			<div class="flex flex-col gap-y-8 mt-16 w-4/5 mx-8">
 				<h2 class="font-bold text-4xl leading-[0.9] lg:text-6xl">Find your <br /> perfect match</h2>
 				<p class="text-sm font-semibold lg:text-xl lg:my-16 lg:max-w-lg">
@@ -88,7 +88,12 @@
 					>Take the plant survey <IconRoundArrowRightAlt class="mt-1 " /></a
 				>
 			</div>
-			<img src="/images/home/rank.png" alt="" class="" id="parallax-2" />
+			<img
+				src="/images/home/rank.png"
+				alt=""
+				class="md:invisible bg-cover w-full"
+				id="parallax-2"
+			/>
 			<!-- 			<img
 				src="/images/home/womancloseduotone2.png"
 				class="absolute bottom-0 max-w-screen-2xl w-screen md:invisible"
@@ -174,7 +179,6 @@
 		background-attachment: fixed;
 		background-position: center;
 		background-repeat: no-repeat;
-		background-size: contain;
 	}
 
 	.parallax-2 {
