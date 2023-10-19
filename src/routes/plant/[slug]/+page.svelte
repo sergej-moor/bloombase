@@ -3,7 +3,7 @@
 	import IconBaselineFavorite from '~icons/ic/baseline-favorite';
 	import LikeButton from '../../../components/LikeButton.svelte';
 	import type { Plant } from '../../../app';
-	export let data;
+	 
 	let liked = false;
 	let { session, supabase } = data;
 	$: ({ session, supabase } = data);
@@ -43,9 +43,7 @@
 	}
 
 	async function toggleLike() {
-		/* 		
-		console.log();
-		console.log(plant.id); */
+	
 		let res = await isLiked();
 
 		if (!res.data) return false;

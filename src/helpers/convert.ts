@@ -12,7 +12,7 @@ function convertResToPlantCards(dataPlants: any[]) {
 			cover_img: plant.cover_img,
 			light_level: plant.light_level,
 			watering_frequency: plant.watering_frequency,
-			pet_friendly: true,
+			pet_friendly: plant.pet_friendly,
 			experience: 0,
 			liked: plant.likes.length != 0
 		};

@@ -52,7 +52,7 @@ export const actions = {
 				.from('houseplants')
 				.update({ cover_img: url })
 				.eq('id', id);
-			console.log(data);
+			
 		}
 
 		async function uploadImages() {

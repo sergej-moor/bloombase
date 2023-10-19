@@ -42,8 +42,8 @@ const uploadPlant = async () => {
 					.update({ pet_friendly: false })
 					.eq('id', 1)
 					.select();
-				console.log(error);
-				console.log(data);
+			/* 	console.log(error);
+				console.log(data); */
 			}
 		});
 

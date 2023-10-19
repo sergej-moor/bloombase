@@ -7,7 +7,7 @@
 	import { SlideToggle } from '@skeletonlabs/skeleton';
 	const drawerStore = getDrawerStore();
 
-	function updateUrl(urlQuery: string, value: number) {
+	function updateUrl(urlQuery: string, value: number | boolean) {
 		let query = new URLSearchParams($page.url.searchParams.toString());
 
 		query.set(urlQuery, value.toString());
@@ -114,21 +114,24 @@
 					class="range mt-1"
 					bind:value={$plantFilterStore.water_frequency}
 					on:input={() => updateUrl('watering', $plantFilterStore.water_frequency)}
-					max="2"
+					max="3"
 				/>
 				<!-- 	<span class="w-16 text-end">Low</span> -->
 			</div>
 		</label>
-		<div class="flex flex-col">
+		<!-- <div class="flex flex-col">
 			<span class="font-bold text-lg">Pet friendly / Not chewable for pets</span>
 			<SlideToggle
 				background="bg-black"
 				active="bg-primary"
 				rounded="rounded-lg"
 				name="slider-label"
-				checked
-				bind:value={$plantFilterStore.pet_friendly}
+				bind:checked={$plantFilterStore.pet_friendly}
+				on:change={() => {
+					const val = $plantFilterStore.pet_friendly ? '1' : '0';
+					updateUrl('pets', val);
+				}}
 			/>
-		</div>
+		</div> -->
 	</form>
 </div>

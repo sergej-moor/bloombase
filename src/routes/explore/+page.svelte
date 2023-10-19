@@ -17,12 +17,13 @@
 	const plants = convertResToPlantCards(data.plants);
 
 	const filteredPlants = (filters: PlantFilter) => {
-		return plants.filter(
-			(plant) =>
-				plant.light_level <= filters.light_level &&
-				plant.watering_frequency <= filters.water_frequency &&
-				plant.experience <= filters.experience /* &&
-				(filters.pet_friendly ? filters.pet_friendly == plant.pet_friendly : true) */
+		return plants.filter((plant) =>
+			plant.light_level <= filters.light_level &&
+			plant.watering_frequency <= filters.water_frequency &&
+			plant.experience <= filters.experience /* &&
+			plant.pet_friendly
+				? plant.pet_friendly == filters.pet_friendly
+				: true */
 		);
 	};
 	let plantsFiltered: Array<PlantCard>;
@@ -48,6 +49,7 @@
 	setFilter(data.filters);
 	plantFilterStore.subscribe((filters) => {
 		plantsFiltered = filteredPlants(filters);
+		renderedPlants = fetchPlants();
 	});
 
 	let activeView = 0;
@@ -119,9 +121,18 @@
 			{#if activeView == 1}
 				<!-- content here -->
 				<ul class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-2 gap-y-4">
-					{#each plantsFiltered as plant}
+					{#each renderedPlants as plant}
 						<li><SmallCard {plant} {supabase} {session} /></li>
 					{/each}
+					<InfiniteScroll
+						hasMore={true}
+						threshold={100}
+						on:loadMore={() => {
+							page++;
+							fetchPlants();
+						}}
+						elementScroll={null}
+					/>
 				</ul>
 			{:else}
 				<!-- else content here -->

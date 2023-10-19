@@ -31,21 +31,22 @@
 			],
 			answerValues: [2, 1, 0]
 		},
-		{
+		/* 		{
 			title: 'Do you have pets that chew on plants?',
 			type: 'pets',
 			answers: ['Yes, they love snacking on my plants 🐶🌿', 'My pets are plant-friendly 🐱❌'],
 			answerValues: [1, 0]
-		},
+		}, */
 		{
 			title: 'Are you a person that has time to water?',
 			type: 'watering',
 			answers: [
-				'I have plenty of time for plant watering 🌧️💧',
-				'I can spare a minute or two for watering 💦',
-				'My schedule is too busy for plant care 🕒'
+				'I have plenty of time for plant watering 🌧️',
+				'I some time for plant watering 💦',
+				'I can spare a minute or two for watering 💧',
+				'I have not much time for watering 🕒'
 			],
-			answerValues: [2, 1, 0]
+			answerValues: [3, 2, 1, 0]
 		}
 	];
 	const url = $page.url;
@@ -61,8 +62,6 @@
 	let lastQuestionIndex: number = questions.length - 1;
 	let loadResults: boolean = false;
 	let surveyStarted: boolean = false;
-
-
 </script>
 
 <svelte:head>

@@ -44,7 +44,7 @@
 
 	const handleSignOut = async () => {
 		let res = await supabase.auth.signOut();
-		console.log(res);
+		/* console.log(res); */
 
 		if (!res.error) {
 			/* showSignUpFeedback = true; */

@@ -4837,5 +4837,5 @@ let newPlants = plants.map((plant) => {
 	if (plant.common.length === 0) newPlant.common = plant.latin;
 	return newPlant;
 });
-
-console.log(newPlants);
+/* 
+console.log(newPlants); */
